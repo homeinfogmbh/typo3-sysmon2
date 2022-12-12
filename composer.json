@@ -1,0 +1,20 @@
+{
+    "name": "homeinfo/pinlogin",
+    "type": "typo3-cms-extension",
+    "description": "",
+    "homepage": "https://www.homeinfo.de",
+    "license": ["GPL-2.0-or-later"],
+    "keywords": ["TYPO3 CMS"],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Homeinfo\\SysMon2\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "SysMon2"
+        }
+    }
+}
