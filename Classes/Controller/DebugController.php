@@ -15,7 +15,7 @@ class DebugController extends ActionController
      * Function will be called before every other action
      *
      */
-    public function debugAction()
+    public function listAction()
     {
         $repository = CheckResultsRepository();
         $records = $repository->findBySystem(12);

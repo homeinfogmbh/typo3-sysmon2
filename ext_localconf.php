@@ -7,6 +7,6 @@ $extensionKey = 'SysMon2';
     'SysMon2',
     'SysMon2',
     [
-        \Homeinfo\SysMon2\Controller\DebugController::class => 'debug',
+        \Homeinfo\SysMon2\Controller\DebugController::class => 'list',
     ],
 );
