@@ -20,6 +20,6 @@ class DebugController extends ActionController
         $repository = CheckResultsRepository();
         $records = $repository->findBySystem(12);
         DebuggerUtility::var_dump($records);
-        //$this->view->assign('check_results', $records);
+        $this->view->assign('check_results', $records);
     }
 }
