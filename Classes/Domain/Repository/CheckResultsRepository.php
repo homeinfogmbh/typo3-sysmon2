@@ -9,10 +9,18 @@ use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 class CheckResultsRepository extends Repository
 {
     public function findBySystem(int $system): QueryResultInterface {
-        $query = $this->getStorageIndependentQuery();
-        $query = $query->matching($query->equals('system', $system));
-        DebuggerUtility::var_dump($query, "Final query: ");
-        return $query->execute();
+        $queryBuilder = $this->connectionPool->getQueryBuilderForTable('checkresults');
+        $statement = $queryBuilder
+            ->select('*')
+            ->where(
+                $queryBuilder->expr()->eq('checkresults.system', $queryBuilder->createNamedParameter(system))
+            );
+        DebuggerUtility::var_dump($statement, "Statement: ");
+        $statement->executeStatement();
+        // $query = $this->getStorageIndependentQuery();
+        // $query = $query->matching($query->equals('system', $system));
+        // DebuggerUtility::var_dump($query, "Final query: ");
+        // return $query->execute();
     }
 
     private function getStorageIndependentQuery() {
