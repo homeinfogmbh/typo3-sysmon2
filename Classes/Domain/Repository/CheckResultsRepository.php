@@ -15,7 +15,7 @@ final class CheckResultsRepository
     ) {
     }
 
-    public function findBySystem(int $system): QueryResultInterface {
+    public function findBySystem(int $system) {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('checkresults');
         $statement = $queryBuilder
             ->select('checkresults.*')
@@ -27,17 +27,6 @@ final class CheckResultsRepository
                 )
             );
         DebuggerUtility::var_dump($statement, "Statement: ");
-        return $statement->executeStatement();
-        // $query = $this->getStorageIndependentQuery();
-        // $query = $query->matching($query->equals('system', $system));
-        // DebuggerUtility::var_dump($query, "Final query: ");
-        // return $query->execute();
-    }
-
-    private function getStorageIndependentQuery() {
-        $query = $this->createQuery();
-        $query->getQuerySettings()->setRespectStoragePage(FALSE);
-        DebuggerUtility::var_dump($query, "Query: ");
-        return $query;
+        $statement->executeStatement();
     }
 }
