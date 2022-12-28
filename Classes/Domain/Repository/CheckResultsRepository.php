@@ -18,7 +18,7 @@ final class CheckResultsRepository
     public function findBySystem(int $system): QueryResultInterface {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('checkresults');
         $statement = $queryBuilder
-            ->select('*')
+            ->select('checkresults.*')
             ->where(
                 $queryBuilder->expr()->eq(
                     'checkresults.system',
