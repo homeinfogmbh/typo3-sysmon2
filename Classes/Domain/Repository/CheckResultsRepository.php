@@ -2,12 +2,18 @@
 
 namespace Homeinfo\SysMon2\Domain\Repository;
 
+use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
-class CheckResultsRepository extends Repository
-{
+final class CheckResultsRepository
+{    
+    public function __construct(
+        private readonly ConnectionPool $connectionPool
+    ) {
+    }
+
     public function findBySystem(int $system): QueryResultInterface {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('checkresults');
         $statement = $queryBuilder
