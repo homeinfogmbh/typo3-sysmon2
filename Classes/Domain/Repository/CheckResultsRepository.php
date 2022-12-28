@@ -15,7 +15,7 @@ final class CheckResultsRepository
     }
 
     public function findBySystem(int $system) {
-        $queryBuilder = $this->connectionPool->getQueryBuilderForTable('checkresults');
+        $queryBuilder = $this->getCheckResultsQuery();
         $result = $queryBuilder
             ->select('*')
             ->from('checkresults')
@@ -31,5 +31,15 @@ final class CheckResultsRepository
         {
             yield CheckResults::fromArray($record);
         }
+    }
+
+    private function getCheckResultsQuery()
+    {
+        return $this->connectionPool->getQueryBuilderForTable('checkresults');
+    }
+
+    private function getOfflineHistoryQuery()
+    {
+        return $this->connectionPool->getQueryBuilderForTable('offlinehistory');
     }
 }
