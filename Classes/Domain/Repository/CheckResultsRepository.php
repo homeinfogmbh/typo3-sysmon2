@@ -16,9 +16,8 @@ class CheckResultsRepository extends Repository
 
     private function getStorageIndependentQuery() {
         $query = $this->createQuery();
-        DebuggerUtility::var_dump($query, "Raw query: ");
+        DebuggerUtility::var_dump($query, "Query: ");
         $query->getQuerySettings()->setRespectStoragePage(FALSE);
-        DebuggerUtility::var_dump($query, "Query without storage: ");
         DebuggerUtility::var_dump($query->getQuerySettings(), "Query settings: ");
         return $query;
     }
