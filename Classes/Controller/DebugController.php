@@ -5,6 +5,7 @@ namespace Homeinfo\SysMon2\Controller;
 use TYPO3\CMS\Core\Utility\DebugUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
 
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use Homeinfo\SysMon2\Domain\Repository\CheckResultsRepository;
@@ -13,7 +14,9 @@ class DebugController extends ActionController
 {
     public function indexAction()
     {
-        $repository = new CheckResultsRepository();
+        
+        $repository = GeneralUtility::makeInstance(ObjectManager::class)
+            ->get(PINRepository::class);
         $records = $repository->findBySystem(12);
         DebuggerUtility::var_dump($records);
         $this->view->assign('check_results', $records);
