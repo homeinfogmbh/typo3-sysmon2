@@ -2,6 +2,8 @@
 
 namespace Homeinfo\SysMon2\Domain\Model;
 
+use DateTime;
+
 final class CheckResults
 {
     function __construct(

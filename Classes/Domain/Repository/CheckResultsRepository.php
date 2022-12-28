@@ -2,8 +2,6 @@
 
 namespace Homeinfo\SysMon2\Domain\Repository;
 
-use DateTime;
-
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 
