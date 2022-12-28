@@ -19,7 +19,10 @@ final class CheckResultsRepository
         $statement = $queryBuilder
             ->select('*')
             ->where(
-                $queryBuilder->expr()->eq('checkresults.system', $queryBuilder->createNamedParameter(system))
+                $queryBuilder->expr()->eq(
+                    'checkresults.system',
+                    $queryBuilder->createNamedParameter($system, Connection::PARAM_INT)
+                )
             );
         DebuggerUtility::var_dump($statement, "Statement: ");
         $statement->executeStatement();
