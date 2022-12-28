@@ -27,6 +27,6 @@ final class CheckResultsRepository
                 )
             )
             ->executeQuery();
-        return $result->fetch();
+        return $result->fetchAll();
     }
 }
