@@ -8,6 +8,8 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
+use Homeinfo\SysMon2\Domain\Model\CheckResults;
+
 final class CheckResultsRepository
 {    
     public function __construct(
@@ -27,6 +29,10 @@ final class CheckResultsRepository
                 )
             )
             ->executeQuery();
-        return $result->fetchAll();
+
+        foreach ($result->fetchAll() as &$record)
+        {
+            yield CheckResults::fromArray($record);
+        }
     }
 }

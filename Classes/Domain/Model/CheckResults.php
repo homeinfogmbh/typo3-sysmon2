@@ -32,7 +32,7 @@ final class CheckResults
     {
     }
 
-    public static function fromArray($array) {
+    public static function fromArray(array $array): Self {
         return new self(
             $array['id'],
             new DateTime($array['timestamp']),
