@@ -17,16 +17,16 @@ final class CheckResultsRepository
 
     public function findBySystem(int $system) {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('checkresults');
-        $statement = $queryBuilder
-            ->select('checkresults.*')
+        $result = $queryBuilder
+            ->select('*')
             ->from('checkresults')
             ->where(
                 $queryBuilder->expr()->eq(
-                    'checkresults.system',
+                    'system',
                     $queryBuilder->createNamedParameter($system, Connection::PARAM_INT)
                 )
-            );
-        DebuggerUtility::var_dump($statement, "Statement: ");
-        $statement->executeStatement();
+            )
+            ->executeStatement();
+        return $result->fetchAssociative();
     }
 }
