@@ -19,6 +19,7 @@ class CheckResultsRepository extends Repository
         DebuggerUtility::var_dump($query, "Raw query: ");
         $query->getQuerySettings()->setRespectStoragePage(FALSE);
         DebuggerUtility::var_dump($query, "Query without storage: ");
+        DebuggerUtility::var_dump($query->getQuerySettings(), "Query settings: ");
         return $query;
     }
 }
