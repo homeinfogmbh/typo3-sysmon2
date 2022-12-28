@@ -11,7 +11,7 @@ use Homeinfo\SysMon2\Domain\Repository\CheckResultsRepository;
 
 class DebugController extends ActionController
 {
-    public function listAction()
+    public function indexAction()
     {
         $repository = CheckResultsRepository();
         $records = $repository->findBySystem(12);
