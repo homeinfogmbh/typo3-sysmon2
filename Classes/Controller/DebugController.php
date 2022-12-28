@@ -2,7 +2,7 @@
 
 namespace Homeinfo\SysMon2\Controller;
 
-use TYPO3\CMS\Core\Utility\DebugUtility;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
@@ -18,7 +18,7 @@ class DebugController extends ActionController
         $repository = GeneralUtility::makeInstance(ObjectManager::class)
             ->get(CheckResultsRepository::class);
         $records = $repository->findBySystem(12);
-        DebugUtility::var_dump($records);
+        DebuggerUtility::var_dump($records);
         $this->view->assign('check_results', $records);
     }
 }
