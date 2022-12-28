@@ -18,7 +18,7 @@ class DebugController extends ActionController
         $repository = GeneralUtility::makeInstance(ObjectManager::class)
             ->get(CheckResultsRepository::class);
         $records = $repository->findBySystem(12);
-        //DebuggerUtility::var_dump($records, "Records: ");
+        DebuggerUtility::var_dump($records, "Records: ");
         $this->view->assign('check_results', $records);
     }
 }
