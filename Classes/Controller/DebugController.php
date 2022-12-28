@@ -13,7 +13,7 @@ class DebugController extends ActionController
 {
     public function indexAction()
     {
-        $repository = CheckResultsRepository();
+        $repository = new CheckResultsRepository();
         $records = $repository->findBySystem(12);
         DebuggerUtility::var_dump($records);
         $this->view->assign('check_results', $records);
