@@ -16,20 +16,20 @@ final class CheckResults
         public readonly string $application_state,
         public readonly string $smart_check,
         public readonly string $baytrail_freeze,
-        public readonly string $fsck_repair,
-        public readonly bool $application_version,
-        public readonly int $ram_total,
-        public readonly int $ram_free,
-        public readonly int $ram_available,
+        public readonly ?string $fsck_repair,
+        public readonly ?string $application_version,
+        public readonly ?int $ram_total,
+        public readonly ?int $ram_free,
+        public readonly ?int $ram_available,
         public readonly string $efi_mount_ok,
-        public readonly int $download,
-        public readonly int $upload,
+        public readonly ?int $download,
+        public readonly ?int $upload,
         public readonly string $root_not_ro,
         public readonly string $sensors,
-        public readonly bool $in_sync,
-        public readonly int $recent_touch_events,
-        public readonly DateTime $offline_since,
-        public readonly DateTime $blackscreen_since
+        public readonly ?bool $in_sync,
+        public readonly ?int $recent_touch_events,
+        public readonly ?DateTime $offline_since,
+        public readonly ?DateTime $blackscreen_since
     )
     {
     }
