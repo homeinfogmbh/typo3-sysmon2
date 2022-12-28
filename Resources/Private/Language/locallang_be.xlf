@@ -15,6 +15,10 @@
             <trans-unit id="mlang_tabs_tab">
                 <source>Backend Tab</source>
             </trans-unit>
+            <trans-unit id="backend.checkresults.label">
+                <source>Prüfungsergebnisse</source>
+                <target>CheckResults</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
