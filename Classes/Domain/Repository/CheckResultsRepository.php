@@ -26,7 +26,7 @@ final class CheckResultsRepository
                     $queryBuilder->createNamedParameter($system, Connection::PARAM_INT)
                 )
             )
-            ->executeStatement();
+            ->executeQuery();
         return $result->fetchAssociative();
     }
 }
