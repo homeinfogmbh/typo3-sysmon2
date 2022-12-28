@@ -11,10 +11,6 @@ use Homeinfo\SysMon2\Domain\Repository\CheckResultsRepository;
 
 class DebugController extends ActionController
 {
-    /**
-     * Function will be called before every other action
-     *
-     */
     public function listAction()
     {
         $repository = CheckResultsRepository();
