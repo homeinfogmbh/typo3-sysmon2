@@ -27,6 +27,6 @@ final class CheckResultsRepository
                 )
             )
             ->executeQuery();
-        return $result->fetchAssociative();
+        return $result->fetch();
     }
 }
