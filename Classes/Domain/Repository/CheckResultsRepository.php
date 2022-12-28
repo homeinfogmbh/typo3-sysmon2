@@ -2,11 +2,10 @@
 
 namespace Homeinfo\SysMon2\Domain\Repository;
 
+use DateTime;
+
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use TYPO3\CMS\Extbase\Persistence\Repository;
-use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
 use Homeinfo\SysMon2\Domain\Model\CheckResults;
 
