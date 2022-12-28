@@ -19,6 +19,7 @@ final class CheckResultsRepository
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('checkresults');
         $statement = $queryBuilder
             ->select('checkresults.*')
+            ->from('checkresults')
             ->where(
                 $queryBuilder->expr()->eq(
                     'checkresults.system',
