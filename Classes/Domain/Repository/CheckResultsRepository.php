@@ -27,7 +27,7 @@ final class CheckResultsRepository
                 )
             );
         DebuggerUtility::var_dump($statement, "Statement: ");
-        $statement->executeStatement();
+        return $statement->executeStatement();
         // $query = $this->getStorageIndependentQuery();
         // $query = $query->matching($query->equals('system', $system));
         // DebuggerUtility::var_dump($query, "Final query: ");
