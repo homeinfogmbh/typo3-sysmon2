@@ -14,5 +14,6 @@ defined('TYPO3_MODE') || die();
         'access' => 'user',
         'labels' => 'LLL:EXT:SysMon2/Resources/Private/Language/locallang_be.xlf:backend.checkresults.label',
         'inheritNavigationComponentFromMainModule' => false,
+        'standalone' => true,
     ]
 );
