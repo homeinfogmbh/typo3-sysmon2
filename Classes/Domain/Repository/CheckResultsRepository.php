@@ -2,19 +2,21 @@
 
 namespace Homeinfo\SysMon2\Domain\Repository;
 
+use Generator;
+
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 
 use Homeinfo\SysMon2\Domain\Model\CheckResults;
 
 final class CheckResultsRepository
-{    
+{
     public function __construct(
         private readonly ConnectionPool $connectionPool
     ) {
     }
 
-    public function findBySystem(int $system) {
+    public function findBySystem(int $system): Generator {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('checkresults');
         $result = $queryBuilder
             ->select('*')
