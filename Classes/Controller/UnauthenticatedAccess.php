@@ -12,7 +12,7 @@ use Homeinfo\SysMon2\Domain\Repository\CheckResultsRepository;
 
 class UnauthenticatedAccess extends ActionController
 {
-    public function listLastMonth()
+    public function listLastMonthAction()
     {
         $customerId = $this->request->getArgument('customer');
         $deploymentRepository = GeneralUtility::makeInstance(ObjectManager::class)

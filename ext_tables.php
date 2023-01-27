@@ -8,7 +8,7 @@ defined('TYPO3_MODE') || die();
     '',
     '',
     [
-        \Homeinfo\SysMon2\Controller\UnauthenticatedAccess::class => 'index',
+        \Homeinfo\SysMon2\Controller\UnauthenticatedAccess::class => 'listLastMonth',
     ],
     [
         'access' => 'user',
