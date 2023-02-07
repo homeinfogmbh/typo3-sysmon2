@@ -6,8 +6,11 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-
 use TYPO3\CMS\Core\Database\ConnectionPool;
+
+use Homeinfo\hwdb\Domain\Repository\DeploymentRepository;
+use Homeinfo\hwdb\Domain\Repository\SystemRepository;
+
 use Homeinfo\SysMon2\Domain\Repository\CheckResultsRepository;
 
 class UnauthenticatedAccess extends ActionController
