@@ -6,7 +6,7 @@ use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 defined('TYPO3') or die();
 
 ExtensionUtility::registerPlugin(
-    'SysMon2',
+    'sysmon2',
     'LastMonth',
     "View of last month's system checks"
 );
