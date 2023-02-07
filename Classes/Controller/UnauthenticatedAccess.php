@@ -24,7 +24,12 @@ class UnauthenticatedAccess extends ActionController
         $deployments = $deploymentRepository->findByCustomerId($customerId);
         $systemRepository = GeneralUtility::makeInstance(ObjectManager::class)
             ->get(SystemRepository::class);
-        $systems = $systemRepository->findByDeployments($deployments);
+        $deploymentIds = [];
+        
+        foreach ($deployments as &$deployment)
+            $deploymentIds[] = $deployment->id;
+
+        $systems = $systemRepository->findByDeploymentIds($deploymentIds);
         $checkResultsRepository = GeneralUtility::makeInstance(ObjectManager::class)
             ->get(CheckResultsRepository::class);
         $checkResults = $checkResultsRepository->findLastMonthBySystems($systems);
