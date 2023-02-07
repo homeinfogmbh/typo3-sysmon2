@@ -14,7 +14,8 @@ class UnauthenticatedAccess extends ActionController
 {
     public function listLastMonthAction()
     {
-        $customerId = $this->request->getArgument('customer');
+        //$customerId = $this->request->getArgument('customer');
+        $customerId = 1000;
         $deploymentRepository = GeneralUtility::makeInstance(ObjectManager::class)
             ->get(DeploymentRepository::class);
         $deployments = $deploymentRepository->findByCustomerId($customerId);
