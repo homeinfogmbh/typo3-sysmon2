@@ -16,7 +16,7 @@ final class CheckResultsRepository
     ) {
     }
 
-    public function findLastMonthBySystems(int $system): Generator {
+    public function findLastMonthBySystems(array $systems): Generator {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('checkresults');
         $result = $queryBuilder
             ->select('*')
