@@ -32,7 +32,7 @@ class UnauthenticatedAccess extends ActionController
         $systems = $systemRepository->findByDeploymentIds($deploymentIds);
         $checkResultsRepository = GeneralUtility::makeInstance(ObjectManager::class)
             ->get(CheckResultsRepository::class);
-        $checkResults = $checkResultsRepository->findLastMonthBySystems($systems);
+        $checkResults = $checkResultsRepository->findLastMonthBySystems(iterator_to_array($systems));
         $this->view->assign('check_results', $records);
     }
 }
