@@ -5,3 +5,8 @@ module.tx_sysmon2 {
         }
     }
 }
+
+page = PAGE
+page {
+    typeNum = 0
+}
