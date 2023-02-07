@@ -18,7 +18,7 @@ final class CheckResultsRepository
 
     public function findLastMonthBySystems(array $systems): Generator {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('checkresults');
-        $result = $queryBuilder
+        $query = $queryBuilder
             ->select('*')
             ->from('checkresults')
             ->where(
@@ -36,8 +36,10 @@ final class CheckResultsRepository
                         date("Y-m-d", strtotime("last day of previous month"))
                     )
                 )
-            )
-            ->executeQuery();
+            );
+
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($query->getSQL(), "Query: ");
+        $result = $query->executeQuery();
 
         foreach ($result->fetchAll() as &$record)
         {
