@@ -35,7 +35,7 @@ class UnauthenticatedAccess extends ActionController
         $systemIds = [];
             
         foreach ($systems as $system)
-            $systemIds[] = $system['id'];
+            $systemIds[] = $system->id;
 
         $checkResults = $checkResultsRepository->findLastMonthBySystems($systemIds);
         $this->view->assign('check_results', $checkResults);
