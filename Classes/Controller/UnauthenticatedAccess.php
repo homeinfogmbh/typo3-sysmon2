@@ -34,7 +34,7 @@ class UnauthenticatedAccess extends ActionController
             ->get(CheckResultsRepository::class);
         $systemIds = [];
             
-        foreach ($systems as &$system)
+        foreach ($systems as $system)
             $systemIds[] = $system['id'];
 
         $checkResults = $checkResultsRepository->findLastMonthBySystems($systemIds);
