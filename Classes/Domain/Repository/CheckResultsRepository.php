@@ -29,11 +29,11 @@ final class CheckResultsRepository
                     ),
                     $queryBuilder->expr()->gte(
                         'timestamp',
-                        date("Y-m-d", strtotime("first day of previous month"))
+                        date("'Y-m-d'", strtotime("first day of previous month"))
                     ),
                     $queryBuilder->expr()->lte(
                         'timestamp',
-                        date("Y-m-d", strtotime("last day of previous month"))
+                        date("'Y-m-d'", strtotime("last day of previous month"))
                     )
                 )
             );
