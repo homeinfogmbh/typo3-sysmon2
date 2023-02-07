@@ -9,4 +9,11 @@ module.tx_sysmon2 {
 page = PAGE
 page {
     typeNum = 0
+    10 = FLUIDTEMPLATE
+    10 {
+        templateRootPaths {
+            0 = EXT:SysMon2/Resources/Private/Templates/
+            1 = {$page.fluidtemplate.templateRootPath}
+        }
+    }
 }
