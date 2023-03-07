@@ -1,0 +1,318 @@
+/* Responsive */
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {}
+
+/* Responsive */
+
+@media only screen and (max-width: 1450px) {}
+
+/*  (max-width: 1450px) */
+
+@media only screen and (max-width: 1366px) {
+    h2.post_title {
+        font-size: 26px;
+    }
+
+    .post_content p {
+        font-size: 16px;
+    }
+
+    .footer-right a {
+        font-size: 22px;
+    }
+
+    .realestate_box h2 {
+        font-size: 22px;
+    }
+
+    .poster_content {
+        font-size: 17px;
+    }
+
+}
+
+/*  (max-width: 1260px) */
+
+@media only screen and (max-width: 1100px) {}
+
+/*  (max-width: 1100px) */
+
+@media only screen and (max-width: 1199px) {
+
+    .col-xl-5.weather_colum {
+        max-width: unset;
+    }
+
+}
+
+/* (max-width: 1199px) */
+
+@media only screen and (max-width: 1024px) {}
+
+/*  (min-width: 768px) and (max-width: 991px) */
+
+@media only screen and (max-width: 991px) {
+
+    span.nav_triger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        width: 30px;
+        padding: 3px 5px;
+        background: #fff;
+        box-shadow: 0 0 3px #000;
+        border-radius: 3px;
+        position: absolute;
+        right: 100%;
+        z-index: 3;
+        top: 20px;
+    }
+
+    .menu_overlay {
+        position: absolute;
+        z-index: -3;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 0;
+        background: #000;
+        content: "";
+        opacity: 0.3;
+        transition: .3s ease all;
+    }
+
+    .menu_active .menu_overlay {
+        width: 100vw;
+    }
+    
+
+    .menu_active .menu_container {
+        right: 0px;
+    }
+
+    .menu_container_inner {
+        padding-bottom: 30px;
+    }
+
+    .menu_container::before {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background: #fff;
+        content: "";
+    }
+
+    .menu_container {
+        z-index: 999;
+        right: -270px;
+        transition: .3s ease all;
+        width: 270px;
+        padding-left: 15px;
+    }
+
+
+    /* Nav Menu End  */
+
+    .page_container {
+        padding-right: 35px;
+        padding-left: 15px;
+    }
+
+    .dashboard_main {
+        width: 100%;
+    }
+
+    .dashboard_right {
+        padding: 30px 12px 30px 12px;
+        margin: 0 auto;
+    }
+
+    h1.dash-title {
+        font-size: 28px;
+    }
+
+    .list_box>h2 {
+        font-size: 24px;
+    }
+
+    .dash-table table.table thead tr th,
+    .dash-list h3 {
+        font-size: 16px;
+    }
+
+    .dash-table table.table tbody tr td,
+    .dash-list ul li p {
+        font-size: 14px;
+    }
+
+    h2.post_title {
+        font-size: 24px;
+    }
+
+    .post_content p {
+        font-size: 16px;
+    }
+
+    .nav_content {
+        font-size: 14px;
+    }
+
+    .footer-right a {
+        font-size: 20px;
+    }
+
+    .realestate_box h2 {
+        font-size: 20px;
+    }
+
+    .poster_content {
+        font-size: 16px;
+    }
+
+    .page_container.postermode_wraper {
+        padding: 0;
+    }
+
+    .postermode_box {
+        margin-left: 0;
+    }
+
+}
+
+/*and (max-width: 991px)*/
+
+@media only screen and (min-width: 426px) and (max-width: 767px) {}
+
+/* (min-width: 426px) and (max-width: 767px) */
+
+@media only screen and (max-width: 767px) {
+
+    .footer_left {
+        margin-bottom: 20px;
+    }
+    
+    .slide_arrow button {
+        width: 25px;
+    }
+    
+    .slide_arrow button img {
+        max-width: 100%;
+    }
+    
+    .page_container {
+        padding-bottom: 160px;
+    }
+
+    footer.page_footer {
+        padding: 50px 0 20px 0;
+    }
+    
+    footer.page_footer:before {
+        clip-path: polygon(0 30px, 100% 0, 100% 100%, 0% 100%);
+    }
+    
+    footer.page_footer:after {
+        clip-path: polygon(0 30px, 100% 0, 100% 100%, 0% 100%);
+        top: -8px;
+    }
+
+    .post_colum.post_side_image h2.post_title {
+        margin-top: 20px;
+    }
+
+    .weather_box {
+        padding: 25px 15px 25px 15px;
+    }
+    
+    h2.weather_title {
+        font-size: 25px;
+    }
+    
+    img.weather_icon {
+        width: 70px;
+    }
+    
+    .weather_maxmin {
+        flex-grow: 1;
+    }
+    
+    .weather_sel {
+        font-size: 20px;
+    }
+    
+    .colorWrap {
+        height: 200px;
+        clip-path: polygon(0 30px, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .postermode_box {
+        padding-bottom: 120px;
+    }
+    
+    .poster_content_row {
+        bottom: 120px;
+    }
+
+    .tableModal .btn-close {
+        width: 40px;
+        height: 40px;
+        right: -1px;
+        top: -1px;
+    }
+    
+    .tableModal .btn-close img {
+        width: 100%;
+    }
+    
+    .tableModal .modal-content {
+        padding: 35px 25px 25px 25px;
+    }
+    
+    .tableModal .modal-body h2 {
+        font-size: 26px;
+    }
+    
+    .tableModal .modal-body h4 {
+        font-size: 17px;
+    }
+
+    .tableModal .modal-dialog {
+        padding: 0 0px 0 0;
+    }
+
+    .poster_contener {
+        padding-bottom: 25px;
+    }
+
+}
+
+/* and (max-width: 767px) */
+
+@media only screen and (max-width: 575px) {
+    footer.page_footer {
+        padding: 30px 0 20px 0;
+    }
+
+    .realestate_box h2 {
+        min-height: unset;
+        margin-bottom: 20px;
+    }
+}
+
+/* (max-width: 575px) */
+
+@media only screen and (min-width: 320px) and (max-width: 425px) {}
+
+/*  (min-width: 320px) and (max-width: 425px) */
+
+@media only screen and (max-width: 480px) {}
+
+/* (max-width: 480px) */
+
+@media only screen and (max-width: 360px) {}
+
+/* (max-width: 360px)  */
