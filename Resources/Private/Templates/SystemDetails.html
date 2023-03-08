@@ -86,46 +86,16 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>12345</td>
-										<td>Oppelner Strasse 1</td>
-										<td>30169 Hannover</td>
-										<td>DSL</td>
-										<td>0.1</td>
-										<td>0.1</td>
-									</tr>
-									<tr>
-										<td>12345</td>
-										<td>Oppelner Strasse 1</td>
-										<td>30169 Hannover</td>
-										<td>DSL</td>
-										<td>0.1</td>
-										<td>0.1</td>
-									</tr>
-									<tr>
-										<td>12345</td>
-										<td>Oppelner Strasse 1</td>
-										<td>30169 Hannover</td>
-										<td>DSL</td>
-										<td>0.1</td>
-										<td>0.1</td>
-									</tr>
-									<tr>
-										<td>12345</td>
-										<td>Oppelner Strasse 1</td>
-										<td>30169 Hannover</td>
-										<td>DSL</td>
-										<td>0.1</td>
-										<td>0.1</td>
-									</tr>
-									<tr>
-										<td>12345</td>
-										<td>Oppelner Strasse 1</td>
-										<td>30169 Hannover</td>
-										<td>DSL</td>
-										<td>0.1</td>
-										<td>0.1</td>
-									</tr>
+									<f:for each="checkedSystems" as="checkedSystem">
+										<tr>
+											<td>{checkedSystem.id}</td>
+											<td>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.houseNumber}</td>
+											<td>{checkedSystem.deployment.address.zipCode} {checkedSystem.deployment.address.city}</td>
+											<td>{checkedSystem.deployment.connection}</td>
+											<td>{checkedSystem.mean.downstream}</td>
+											<td>{checkedSystem.mean.upstream}</td>
+										</tr>
+									</f:for>
 								</tbody>
 							</table>
 						</div>
