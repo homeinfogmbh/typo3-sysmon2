@@ -55,11 +55,11 @@
 									<f:for each="systemsWithCheckResults" as="checkedSystem">
 										<tr>
 											<td>{checkedSystem.id}</td>
-											<td>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.houseNumber}</td>
-											<td>{checkedSystem.deployment.address.zipCode} {checkedSystem.deployment.address.city}</td>
+											<td>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.house_number}</td>
+											<td>{checkedSystem.deployment.address.zip_code} {checkedSystem.deployment.address.city}</td>
 											<td>{checkedSystem.deployment.connection}</td>
 											<td>{checkedSystem.model}</td>
-											<td>{checkedSystem.lastSync}</td>
+											<td>{checkedSystem.last_sync}</td>
 										</tr>
 									</f:for>
 								</tbody>
@@ -89,8 +89,8 @@
 									<f:for each="systemsWithCheckResults" as="checkedSystem">
 										<tr>
 											<td>{checkedSystem.id}</td>
-											<td>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.houseNumber}</td>
-											<td>{checkedSystem.deployment.address.zipCode} {checkedSystem.deployment.address.city}</td>
+											<td>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.house_number}</td>
+											<td>{checkedSystem.deployment.address.zip_code} {checkedSystem.deployment.address.city}</td>
 											<td>{checkedSystem.deployment.connection}</td>
 											<td>{checkedSystem.mean.downstream}</td>
 											<td>{checkedSystem.mean.upstream}</td>
@@ -113,8 +113,8 @@
 									<ul>
 										<f:for each="systemsWithCheckResults" as="checkedSystem">
 											<li>
-												<p>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.houseNumber}</p>
-												<p>{checkedSystem.deployment.address.zipCode} {checkedSystem.deployment.address.city}</p>
+												<p>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.house_number}</p>
+												<p>{checkedSystem.deployment.address.zip_code} {checkedSystem.deployment.address.city}</p>
 											</li>
 										</f:for>
 									</ul>
@@ -133,8 +133,8 @@
 									<ul>
 										<f:for each="systemsWithCheckResults" as="checkedSystem">
 											<li>
-												<p>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.houseNumber}</p>
-												<p>{checkedSystem.deployment.address.zipCode} {checkedSystem.deployment.address.city}</p>
+												<p>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.house_number}</p>
+												<p>{checkedSystem.deployment.address.zip_code} {checkedSystem.deployment.address.city}</p>
 											</li>
 										</f:for>
 									</ul>

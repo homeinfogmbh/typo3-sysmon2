@@ -19,13 +19,13 @@ class SystemWithCheckResults {
         public readonly DateTime $created,
         public readonly ?DateTime $configured,
         public readonly bool $fitted,
-        public readonly string $operatingSystem,
+        public readonly string $operating_system,
         public readonly ?bool $monitor,
-        public readonly ?string $serialNumber,
+        public readonly ?string $serial_number,
         public readonly ?string $model,
-        public readonly ?DateTime $lastSync,
+        public readonly ?DateTime $last_sync,
         public readonly bool $updating,
-        public readonly array $checkResults,
+        public readonly array $check_results,
     )
     {}
 
@@ -48,11 +48,11 @@ class SystemWithCheckResults {
             $system->created,
             $system->configured,
             $system->fitted,
-            $system->operatingSystem,
+            $system->operating_system,
             $system->monitor,
-            $system->serialNumber,
+            $system->serial_number,
             $system->model,
-            $system->lastSync,
+            $system->last_sync,
             $system->updating,
             iterator_to_array($this->getCheckResults($system->id, $checkResults)),
         );
