@@ -52,46 +52,16 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>12345</td>
-										<td>Oppelner Strasse 1</td>
-										<td>30169 Hannover</td>
-										<td>DSL</td>
-										<td>3D Design</td>
-										<td>2.45 GB</td>
-									</tr>
-									<tr>
-										<td>12345</td>
-										<td>Oppelner Strasse 1</td>
-										<td>30169 Hannover</td>
-										<td>DSL</td>
-										<td>3D Design</td>
-										<td>2.45 GB</td>
-									</tr>
-									<tr>
-										<td>12345</td>
-										<td>Oppelner Strasse 1</td>
-										<td>30169 Hannover</td>
-										<td>DSL</td>
-										<td>3D Design</td>
-										<td>2.45 GB</td>
-									</tr>
-									<tr>
-										<td>12345</td>
-										<td>Oppelner Strasse 1</td>
-										<td>30169 Hannover</td>
-										<td>DSL</td>
-										<td>3D Design</td>
-										<td>2.45 GB</td>
-									</tr>
-									<tr>
-										<td>12345</td>
-										<td>Oppelner Strasse 1</td>
-										<td>30169 Hannover</td>
-										<td>DSL</td>
-										<td>3D Design</td>
-										<td>2.45 GB</td>
-									</tr>
+									<f:for each="checkedSystems" as="checkedSystem">
+										<tr>
+											<td>{checkedSystem.id}</td>
+											<td>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.houseNumber}</td>
+											<td>{checkedSystem.deployment.address.zipCode} {checkedSystem.deployment.address.city}</td>
+											<td>{checkedSystem.deployment.connection}</td>
+											<td>{checkedSystem.model}</td>
+											<td>{checkedSystem.lastSync}</td>
+										</tr>
+									</f:for>
 								</tbody>
 							</table>
 						</div>
