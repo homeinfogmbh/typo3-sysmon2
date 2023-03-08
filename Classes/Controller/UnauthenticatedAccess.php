@@ -8,10 +8,14 @@ use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 
+use Generator;
+
+use Homeinfo\hwdb\Domain\Model\Deployment;
 use Homeinfo\hwdb\Domain\Repository\DeploymentRepository;
 use Homeinfo\hwdb\Domain\Repository\SystemRepository;
 
 use Homeinfo\SysMon2\Domain\Repository\CheckResultsRepository;
+use Homeinfo\SysMon2\SystemWithCheckResults;
 
 class UnauthenticatedAccess extends ActionController
 {
@@ -38,6 +42,7 @@ class UnauthenticatedAccess extends ActionController
             $systemIds[] = $system->id;
 
         $checkResults = $checkResultsRepository->findLastMonthBySystems($systemIds);
-        $this->view->assign('check_results', $checkResults);
+        $systemsWithCheckResults = SystemWithCheckResults::fromSystemsDeploymentsAndCheckResults($systems, $deployment, $checkResults);
+        $this->view->assign('systemsWithCheckResults', $systemsWithCheckResults);
     }
 }
