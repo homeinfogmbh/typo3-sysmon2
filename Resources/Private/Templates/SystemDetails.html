@@ -52,7 +52,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<f:for each="checkedSystems" as="checkedSystem">
+									<f:for each="systemsWithCheckResults" as="checkedSystem">
 										<tr>
 											<td>{checkedSystem.id}</td>
 											<td>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.houseNumber}</td>
@@ -86,7 +86,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<f:for each="checkedSystems" as="checkedSystem">
+									<f:for each="systemsWithCheckResults" as="checkedSystem">
 										<tr>
 											<td>{checkedSystem.id}</td>
 											<td>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.houseNumber}</td>
@@ -111,7 +111,7 @@
 								<div class="dash-list">
 									<h3>In Bereitschaft stehende Displays</h3>
 									<ul>
-										<f:for each="checkedSystems" as="checkedSystem">
+										<f:for each="systemsWithCheckResults" as="checkedSystem">
 											<li>
 												<p>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.houseNumber}</p>
 												<p>{checkedSystem.deployment.address.zipCode} {checkedSystem.deployment.address.city}</p>
@@ -131,7 +131,7 @@
 								<div class="dash-list">
 									<h3>Warung vor Überhitzung</h3>
 									<ul>
-										<f:for each="checkedSystems" as="checkedSystem">
+										<f:for each="systemsWithCheckResults" as="checkedSystem">
 											<li>
 												<p>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.houseNumber}</p>
 												<p>{checkedSystem.deployment.address.zipCode} {checkedSystem.deployment.address.city}</p>
