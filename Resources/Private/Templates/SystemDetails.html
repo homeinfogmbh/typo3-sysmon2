@@ -111,42 +111,12 @@
 								<div class="dash-list">
 									<h3>In Bereitschaft stehende Displays</h3>
 									<ul>
-										<li>
-											<p>Schweiditzer Weg 6</p>
-											<p>30123 Hannover</p>
-										</li>
-										<li>
-											<p>Heimgartenstr. 12 </p>
-											<p>30123 Hannover</p>
-										</li>
-										<li>
-											<p>Heimgartenstr. 12 </p>
-											<p>30123 Hannover</p>
-										</li>
-										<li>
-											<p>Heimgartenstr. 12 </p>
-											<p>30123 Hannover</p>
-										</li>
-										<li>
-											<p>Heimgartenstr. 12 </p>
-											<p>30123 Hannover</p>
-										</li>
-										<li>
-											<p>Schweiditzer Weg 6</p>
-											<p>30123 Hannover</p>
-										</li>
-										<li>
-											<p>Heimgartenstr. 12 </p>
-											<p>30123 Hannover</p>
-										</li>
-										<li>
-											<p>Heimgartenstr. 12 </p>
-											<p>30123 Hannover</p>
-										</li>
-										<li>
-											<p>Heimgartenstr. 12 </p>
-											<p>30123 Hannover</p>
-										</li>
+										<f:for each="checkedSystems" as="checkedSystem">
+											<li>
+												<p>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.houseNumber}</p>
+												<p>{checkedSystem.deployment.address.zipCode} {checkedSystem.deployment.address.city}</p>
+											</li>
+										</f:for>
 									</ul>
 								</div>
 								<a href="#" class="location_pin" data-bs-toggle="modal" data-bs-target="#tableModal">
