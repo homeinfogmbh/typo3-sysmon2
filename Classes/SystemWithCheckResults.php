@@ -6,6 +6,7 @@ use DateTime;
 use Generator;
 
 use Homeinfo\hwdb\Domain\Model\Deployment;
+use Homeinfo\hwdb\Domain\Model\System;
 
 class SystemWithCheckResults {
     function __construct(
@@ -29,13 +30,13 @@ class SystemWithCheckResults {
     )
     {}
 
-    public static function fromSystemsDeploymentsAndCheckResults($systems, $deployments, $checkResults): Generator
+    public static function fromSystemsDeploymentsAndCheckResults(array $systems, array $deployments, array $checkResults): Generator
     {
         foreach ($systems as $system)
             yield Self::fromSystemDeploymentsAndCheckResults($system, $deployments, $checkResults);
     }
 
-    public static function fromSystemDeploymentsAndCheckResults($system, $deployments, $checkResults): Self
+    public static function fromSystemDeploymentsAndCheckResults(System $system, array $deployments, array $checkResults): Self
     {
         return new Self(
             $system->id,
