@@ -19,7 +19,7 @@ use Homeinfo\SysMon2\SystemWithCheckResults;
 
 class UnauthenticatedAccess extends ActionController
 {
-    public function listLastMonthAction()
+    public function systemDetailsAction()
     {
         //$customerId = $this->request->getArgument('customer');
         $customerId = 1030020;

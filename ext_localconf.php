@@ -5,6 +5,6 @@ defined('TYPO3_MODE') || die();
     'sysmon2',
     'LastMonth',
     [
-        \Homeinfo\SysMon2\Controller\UnauthenticatedAccess::class => 'listLastMonth',
+        \Homeinfo\SysMon2\Controller\UnauthenticatedAccess::class => 'systemDetails',
     ],
 );
