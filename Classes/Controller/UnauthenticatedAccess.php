@@ -25,7 +25,7 @@ class UnauthenticatedAccess extends ActionController
         $customerId = 1030020;
         $deploymentRepository = GeneralUtility::makeInstance(ObjectManager::class)
             ->get(DeploymentRepository::class);
-        $deployments = $deploymentRepository->findByCustomerId($customerId);
+        $deployments = iterator_to_array($deploymentRepository->findByCustomerId($customerId));
         $systemRepository = GeneralUtility::makeInstance(ObjectManager::class)
             ->get(SystemRepository::class);
         $deploymentIds = [];
@@ -43,7 +43,7 @@ class UnauthenticatedAccess extends ActionController
 
         $checkResults = $checkResultsRepository->findLastMonthBySystems($systemIds);
         $systemsWithCheckResults = iterator_to_array(
-            SystemWithCheckResults::fromSystemsDeploymentsAndCheckResults($systems, $deployment, $checkResults)
+            SystemWithCheckResults::fromSystemsDeploymentsAndCheckResults($systems, $deployments, $checkResults)
         );
         $this->view->assign('systemsWithCheckResults', $systemsWithCheckResults);
     }
