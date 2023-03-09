@@ -41,7 +41,7 @@ class UnauthenticatedAccess extends ActionController
         foreach ($systems as $system)
             $systemIds[] = $system->id;
 
-        $checkResults = $checkResultsRepository->findLastMonthBySystems($systemIds);
+        $checkResults = iterator_to_array($checkResultsRepository->findLastMonthBySystems($systemIds));
         $systemsWithCheckResults = iterator_to_array(
             SystemWithCheckResults::fromSystemsDeploymentsAndCheckResults($systems, $deployments, $checkResults)
         );
