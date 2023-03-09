@@ -33,7 +33,7 @@ class UnauthenticatedAccess extends ActionController
         foreach ($deployments as &$deployment)
             $deploymentIds[] = $deployment['id'];
 
-        $systems = $systemRepository->findByDeploymentIds($deploymentIds);
+        $systems = iterator_to_array($systemRepository->findByDeploymentIds($deploymentIds));
         $checkResultsRepository = GeneralUtility::makeInstance(ObjectManager::class)
             ->get(CheckResultsRepository::class);
         $systemIds = [];
