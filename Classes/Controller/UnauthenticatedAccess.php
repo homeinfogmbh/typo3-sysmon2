@@ -42,7 +42,9 @@ class UnauthenticatedAccess extends ActionController
             $systemIds[] = $system->id;
 
         $checkResults = $checkResultsRepository->findLastMonthBySystems($systemIds);
-        $systemsWithCheckResults = SystemWithCheckResults::fromSystemsDeploymentsAndCheckResults($systems, $deployment, $checkResults);
+        $systemsWithCheckResults = iterator_to_array(
+            SystemWithCheckResults::fromSystemsDeploymentsAndCheckResults($systems, $deployment, $checkResults)
+        );
         $this->view->assign('systemsWithCheckResults', $systemsWithCheckResults);
     }
 }
