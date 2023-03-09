@@ -40,8 +40,8 @@ class SystemWithCheckResults {
         return new Self(
             $system->id,
             $system->group,
-            $this->getDeployment($system->deployment, $deployments),
-            $this->getDeployment($system->dataset, $deployments),
+            Self::getDeployment($system->deployment, $deployments),
+            Self::getDeployment($system->dataset, $deployments),
             $system->openvpn,
             $system->ipv6address,
             $system->pubkey,
@@ -54,7 +54,7 @@ class SystemWithCheckResults {
             $system->model,
             $system->last_sync,
             $system->updating,
-            iterator_to_array($this->getCheckResults($system->id, $checkResults)),
+            iterator_to_array(Self::getCheckResults($system->id, $checkResults)),
         );
     }
 
