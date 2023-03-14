@@ -59,7 +59,16 @@
 											<td>{checkedSystem.deployment.address.zip_code} {checkedSystem.deployment.address.city}</td>
 											<td>{checkedSystem.deployment.connection}</td>
 											<td>{checkedSystem.model}</td>
-											<td>{checkedSystem.last_sync}</td>
+											<td>
+												<f:if condition="{checkedSystem.last_sync} === NULL">
+													<f:then>
+														Never
+													</f:then>
+													<f:else>
+														{checkedSystem.last_sync->format(DateTime::ATOM)}
+													</f:else>
+												</f:if>
+											</td>
 										</tr>
 									</f:for>
 								</tbody>
