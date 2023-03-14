@@ -65,7 +65,7 @@
 														Never
 													</f:then>
 													<f:else>
-														{checkedSystem.last_sync.format(DateTime::ATOM)}
+														<f:format.date format="d.m.Y">{checkedSystem.last_sync}</f:format.date>
 													</f:else>
 												</f:if>
 											</td>
