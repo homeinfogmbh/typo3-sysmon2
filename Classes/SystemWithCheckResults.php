@@ -41,8 +41,8 @@ class SystemWithCheckResults {
         return new Self(
             $system->id,
             $system->group,
-            Self::getDeployment($system->deployment, $deployments),
-            Self::getDeployment($system->dataset, $deployments),
+            $system->deployment,
+            $system->dataset,
             $system->openvpn,
             $system->ipv6address,
             $system->pubkey,
@@ -57,18 +57,6 @@ class SystemWithCheckResults {
             $system->updating,
             iterator_to_array(Self::getCheckResults($system->id, $checkResults)),
         );
-    }
-
-    private static function getDeployment(?int $deploymentId, array $deployments): ?Deployment
-    {
-        if ($deploymentId === NULL)
-            return NULL;
-
-        foreach ($deployments as $deployment)
-            if ($deployment->id === $deploymentId)
-                return $deployment;
-
-        return NULL;
     }
 
     private static function getCheckResults(int $systemId, array $checkResults): Generator
