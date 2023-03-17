@@ -33,7 +33,7 @@ class MeanCheckResults
 
     private static function mean(array $values): ?float
     {
-        if ($cnt = count($values) === 0)
+        if (($cnt = count($values)) === 0)
             return NULL;
 
         return array_sum($values) / $cnt;
