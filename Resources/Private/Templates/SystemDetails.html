@@ -120,7 +120,7 @@
 								<div class="dash-list">
 									<h3>In Bereitschaft stehende Displays</h3>
 									<ul>
-										<f:for each="{systemsWithCheckResults}" as="checkedSystem">
+										<f:for each="{notFitted}" as="checkedSystem">
 											<li>
 												<p>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.house_number}</p>
 												<p>{checkedSystem.deployment.address.zip_code} {checkedSystem.deployment.address.city}</p>
@@ -140,7 +140,7 @@
 								<div class="dash-list">
 									<h3>Warung vor Überhitzung</h3>
 									<ul>
-										<f:for each="{systemsWithCheckResults}" as="checkedSystem">
+										<f:for each="{sensorsCritical}" as="checkedSystem">
 											<li>
 												<p>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.house_number}</p>
 												<p>{checkedSystem.deployment.address.zip_code} {checkedSystem.deployment.address.city}</p>

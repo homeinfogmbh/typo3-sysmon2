@@ -41,6 +41,16 @@ class UnauthenticatedAccess extends ActionController
             fn($systemWithCheckResults) => $systemWithCheckResults->downloadAlwaysCritical() || $systemWithCheckResults->uploadAlwaysCritical()
         );
         $this->view->assign('downlaodUploadCritical', $downlaodUploadCritical);
+        $sensorsCritical = array_filter(
+            $systemsWithCheckResults,
+            fn($systemWithCheckResults) => $systemWithCheckResults->sensorsAlwaysCritical()
+        );
+        $this->view->assign('sensorsCritical', $sensorsCritical);
+        $notFitted = array_filter(
+            $systemsWithCheckResults,
+            fn($systemWithCheckResults) => $systemWithCheckResults->deployedAndFitted()
+        );
+        $this->view->assign('notFitted', $notFitted);
     }
 
     private static function getCustomerId(): int
