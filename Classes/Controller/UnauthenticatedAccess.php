@@ -31,11 +31,16 @@ class UnauthenticatedAccess extends ActionController
         $systemsWithCheckResults = iterator_to_array(
             SystemWithCheckResults::fromSystemsDeploymentsAndCheckResults($systems, $deployments, $checkResults)
         );
-        $offlineSystemsWithCheckResults = array_filter(
+        $alwaysOffline = array_filter(
             $systemsWithCheckResults,
             fn($systemWithCheckResults) => $systemWithCheckResults->alwaysOffline()
         );
-        $this->view->assign('systemsWithCheckResults', $offlineSystemsWithCheckResults);
+        $this->view->assign('alwaysOffline', $alwaysOffline);
+        $downlaodUploadCritical = array_filter(
+            $systemsWithCheckResults,
+            fn($systemWithCheckResults) => $systemWithCheckResults->downloadAlwaysCritical() || $systemWithCheckResults->uploadAlwaysCritical()
+        );
+        $this->view->assign('downlaodUploadCritical', $downlaodUploadCritical);
     }
 
     private static function getCustomerId(): int

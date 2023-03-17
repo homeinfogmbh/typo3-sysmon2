@@ -52,7 +52,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<f:for each="{systemsWithCheckResults}" as="checkedSystem">
+									<f:for each="{alwaysOffline}" as="checkedSystem">
 										<tr>
 											<td>{checkedSystem.id}</td>
 											<td>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.house_number}</td>
@@ -95,7 +95,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<f:for each="{systemsWithCheckResults}" as="checkedSystem">
+									<f:for each="{downlaodUploadCritical}" as="checkedSystem">
 										<tr>
 											<td>{checkedSystem.id}</td>
 											<td>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.house_number}</td>
