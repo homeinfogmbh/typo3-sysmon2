@@ -27,18 +27,8 @@ class UnauthenticatedAccess extends ActionController
     public function systemDetailsAction()
     {
         $deployments = iterator_to_array($this->deploymentRepository->findByCustomerId(Self::getCustomerId()));
-        $deploymentIds = [];
-        
-        foreach ($deployments as &$deployment)
-            $deploymentIds[] = $deployment->id;
-
-        $systems = iterator_to_array($this->systemRepository->findByDeploymentIds($deploymentIds));
-        $systemIds = [];
-            
-        foreach ($systems as $system)
-            $systemIds[] = $system->id;
-
-        $checkResults = iterator_to_array($this->checkResultsRepository->findLastMonthBySystems($systemIds));
+        $systems = iterator_to_array($this->systemRepository->findByDeployments($deployments));
+        $checkResults = iterator_to_array($this->checkResultsRepository->findLastMonthBySystems($systems));
         $systemsWithCheckResults = iterator_to_array(
             SystemWithCheckResults::fromSystemsDeploymentsAndCheckResults($systems, $deployments, $checkResults)
         );

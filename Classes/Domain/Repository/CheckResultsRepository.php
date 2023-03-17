@@ -16,7 +16,17 @@ final class CheckResultsRepository
     ) {
     }
 
-    public function findLastMonthBySystems(array $systems): Generator {
+    public function findLastMonthBySystems(array $systems): Generator
+    {    
+        $systemIds = [];
+            
+        foreach ($systems as $system)
+            $systemIds[] = $system->id;
+
+        return $this->findLastMonthBySystemIds($systemIds);
+    }
+
+    public function findLastMonthBySystemIds(array $systemIds): Generator {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('checkresults');
         $query = $queryBuilder
             ->select('*')
@@ -25,7 +35,7 @@ final class CheckResultsRepository
                 $queryBuilder->expr()->and(
                     $queryBuilder->expr()->in(
                         'system',
-                        $queryBuilder->createNamedParameter($systems, Connection::PARAM_INT_ARRAY)
+                        $queryBuilder->createNamedParameter($systemIds, Connection::PARAM_INT_ARRAY)
                     ),
                     $queryBuilder->expr()->gte(
                         'timestamp',
@@ -48,7 +58,7 @@ final class CheckResultsRepository
         }
     }
 
-    public function findBySystems(array $systems): Generator {
+    public function findBySystemIds(array $systemIds): Generator {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('checkresults');
         $result = $queryBuilder
             ->select('*')
@@ -56,7 +66,7 @@ final class CheckResultsRepository
             ->where(
                 $queryBuilder->expr()->in(
                     'system',
-                    $queryBuilder->createNamedParameter($systems, Connection::PARAM_INT_ARRAY)
+                    $queryBuilder->createNamedParameter($systemIds, Connection::PARAM_INT_ARRAY)
                 )
             )
             ->executeQuery();
@@ -67,7 +77,7 @@ final class CheckResultsRepository
         }
     }
 
-    public function findBySystem(int $system): Generator {
+    public function findBySystemId(int $systemId): Generator {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('checkresults');
         $result = $queryBuilder
             ->select('*')
@@ -75,7 +85,7 @@ final class CheckResultsRepository
             ->where(
                 $queryBuilder->expr()->eq(
                     'system',
-                    $queryBuilder->createNamedParameter($system, Connection::PARAM_INT)
+                    $queryBuilder->createNamedParameter($systemId, Connection::PARAM_INT)
                 )
             )
             ->executeQuery();
