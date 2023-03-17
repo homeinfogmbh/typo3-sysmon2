@@ -30,6 +30,15 @@ class SystemWithCheckResults {
     )
     {}
 
+    public function alwaysOffline(): bool
+    {
+        foreach ($this->check_results as $checkResult)
+            if ($checkResult.isOnline())
+                return false;
+        
+        return true;
+    }
+
     public static function fromSystemsDeploymentsAndCheckResults(array $systems, array $deployments, array $checkResults): Generator
     {
         foreach ($systems as $system)
