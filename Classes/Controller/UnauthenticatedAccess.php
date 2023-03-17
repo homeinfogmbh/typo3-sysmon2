@@ -17,11 +17,9 @@ class UnauthenticatedAccess extends ActionController
 {
     public function systemDetailsAction()
     {
-        //$customerId = $this->request->getArgument('customer');
-        $customerId = 1030020;
         $deploymentRepository = GeneralUtility::makeInstance(ObjectManager::class)
             ->get(DeploymentRepository::class);
-        $deployments = iterator_to_array($deploymentRepository->findByCustomerId($customerId));
+        $deployments = iterator_to_array($deploymentRepository->findByCustomerId(Self::getCustomerId()));
         $systemRepository = GeneralUtility::makeInstance(ObjectManager::class)
             ->get(SystemRepository::class);
         $deploymentIds = [];
@@ -42,5 +40,11 @@ class UnauthenticatedAccess extends ActionController
             SystemWithCheckResults::fromSystemsDeploymentsAndCheckResults($systems, $deployments, $checkResults)
         );
         $this->view->assign('systemsWithCheckResults', $systemsWithCheckResults);
+    }
+
+    private static function getCustomerId(): int
+    {
+        //return $this->request->getArgument('customer');
+        return 1030020;
     }
 }
