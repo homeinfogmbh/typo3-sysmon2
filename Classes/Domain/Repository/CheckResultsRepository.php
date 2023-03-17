@@ -56,7 +56,7 @@ final class CheckResultsRepository
 
     public function findBySystemIds(array $systemIds): Generator {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('checkresults');
-        $result = $queryBuilder
+        $query = $queryBuilder
             ->select('*')
             ->from('checkresults')
             ->where(
@@ -64,10 +64,9 @@ final class CheckResultsRepository
                     'system',
                     $queryBuilder->createNamedParameter($systemIds, Connection::PARAM_INT_ARRAY)
                 )
-            )
-            ->executeQuery();
+            );
 
-        foreach ($result->fetchAll() as &$record)
+        foreach ($query->executeQuery()->fetchAll() as &$record)
         {
             yield CheckResults::fromArray($record);
         }
@@ -75,7 +74,7 @@ final class CheckResultsRepository
 
     public function findBySystemId(int $systemId): Generator {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('checkresults');
-        $result = $queryBuilder
+        $query = $queryBuilder
             ->select('*')
             ->from('checkresults')
             ->where(
@@ -83,10 +82,9 @@ final class CheckResultsRepository
                     'system',
                     $queryBuilder->createNamedParameter($systemId, Connection::PARAM_INT)
                 )
-            )
-            ->executeQuery();
+            );
 
-        foreach ($result->fetchAll() as &$record)
+        foreach ($query->executeQuery()->fetchAll() as &$record)
         {
             yield CheckResults::fromArray($record);
         }
