@@ -39,6 +39,24 @@ class SystemWithCheckResults {
         return true;
     }
 
+    public function downloadAlwaysCritical(): bool
+    {
+        foreach ($this->check_results as $checkResult)
+            if ($checkResult->downloadOk())
+                return false;
+        
+        return true;
+    }
+
+    public function uploadAlwaysCritical(): bool
+    {
+        foreach ($this->check_results as $checkResult)
+            if ($checkResult->uploadOk())
+                return false;
+        
+        return true;
+    }
+
     public static function fromSystemsDeploymentsAndCheckResults(array $systems, array $deployments, array $checkResults): Generator
     {
         foreach ($systems as $system)

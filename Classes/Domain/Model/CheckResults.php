@@ -37,12 +37,12 @@ final class CheckResults
     {
     }
 
-    public function downloadIsOk(): bool
+    public function downloadOk(): bool
     {
         return $this->download !== NULL && $this->download >= MIN_DOWNLOAD;
     }
 
-    public function uploadIsOk(): bool
+    public function uploadOk(): bool
     {
         return $this->upload !== NULL && $this->upload >= MIN_UPLOAD;
     }
