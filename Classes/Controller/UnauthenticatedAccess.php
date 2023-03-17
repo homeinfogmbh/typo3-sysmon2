@@ -17,7 +17,6 @@ class UnauthenticatedAccess extends ActionController
 {
     function __construct()
     {
-        parent::__construct();
         $this->objectManager = GeneralUtility::makeInstance(ObjectManager::class);
         $this->deploymentRepository = $this->objectManager->get(DeploymentRepository::class);
         $this->systemRepository = $this->objectManager->get(SystemRepository::class);
