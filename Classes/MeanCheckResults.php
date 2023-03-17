@@ -5,12 +5,12 @@ namespace Homeinfo\SysMon2;
 class MeanCheckResults
 {
     function __construct(
-        public readonly ?int $ram_total,
-        public readonly ?int $ram_free,
-        public readonly ?int $ram_available,
-        public readonly ?int $download,
-        public readonly ?int $upload,
-        public readonly ?int $recent_touch_events
+        public readonly ?float $ram_total,
+        public readonly ?float $ram_free,
+        public readonly ?float $ram_available,
+        public readonly ?float $download,
+        public readonly ?float $upload,
+        public readonly ?float $recent_touch_events
     )
     {}
 
@@ -26,13 +26,16 @@ class MeanCheckResults
         );
     }
 
-    private static function meanWithNulls(array $values): float
+    private static function meanWithNulls(array $values): ?float
     {
         return Self::mean(array_filter($values, fn($value) => $value !== NULL));
     }
 
-    private static function mean(array $values): float
+    private static function mean(array $values): ?float
     {
-        return array_sum($values) / count($values);
+        if ($cnt = count($values) === 0)
+            return NULL;
+
+        return array_sum($values) / $cnt;
     }
 }
