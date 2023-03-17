@@ -44,7 +44,8 @@ final class CheckResults
         return $this->icmp_request && ($this->ssh_login === 'success');
     }
 
-    public static function fromArray(array $array): Self {
+    public static function fromArray(array $array): Self
+    {
         return new self(
             $array['id'],
             new DateTime($array['timestamp']),

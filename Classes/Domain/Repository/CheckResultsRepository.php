@@ -13,8 +13,8 @@ final class CheckResultsRepository
 {
     public function __construct(
         private readonly ConnectionPool $connectionPool
-    ) {
-    }
+    )
+    {}
 
     public function findLastMonthBySystems(array $systems): Generator
     {    
@@ -26,7 +26,8 @@ final class CheckResultsRepository
         return $this->findLastMonthBySystemIds($systemIds);
     }
 
-    public function findLastMonthBySystemIds(array $systemIds): Generator {
+    public function findLastMonthBySystemIds(array $systemIds): Generator
+    {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('checkresults');
         $query = $queryBuilder
             ->select('*')
@@ -49,12 +50,11 @@ final class CheckResultsRepository
             );
 
         foreach ($query->executeQuery()->fetchAll() as &$record)
-        {
             yield CheckResults::fromArray($record);
-        }
     }
 
-    public function findBySystemIds(array $systemIds): Generator {
+    public function findBySystemIds(array $systemIds): Generator
+    {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('checkresults');
         $query = $queryBuilder
             ->select('*')
@@ -67,12 +67,11 @@ final class CheckResultsRepository
             );
 
         foreach ($query->executeQuery()->fetchAll() as &$record)
-        {
             yield CheckResults::fromArray($record);
-        }
     }
 
-    public function findBySystemId(int $systemId): Generator {
+    public function findBySystemId(int $systemId): Generator
+    {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('checkresults');
         $query = $queryBuilder
             ->select('*')
@@ -85,8 +84,6 @@ final class CheckResultsRepository
             );
 
         foreach ($query->executeQuery()->fetchAll() as &$record)
-        {
             yield CheckResults::fromArray($record);
-        }
     }
 }
