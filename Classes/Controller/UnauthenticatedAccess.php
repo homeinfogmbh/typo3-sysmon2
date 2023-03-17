@@ -15,6 +15,14 @@ use Homeinfo\SysMon2\SystemWithCheckResults;
 
 class UnauthenticatedAccess extends ActionController
 {
+    function __construct()
+    {
+        $this->objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+        $this->deploymentRepository = $this->objectManager->get(DeploymentRepository::class);
+        $this->systemRepository = $this->objectManager->get(SystemRepository::class);
+        $this->checkResultsRepository = $this->objectManager->get(CheckResultsRepository::class);
+    }
+
     public function systemDetailsAction()
     {
         $deploymentRepository = GeneralUtility::makeInstance(ObjectManager::class)
