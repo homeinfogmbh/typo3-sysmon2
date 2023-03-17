@@ -17,12 +17,12 @@ class MeanCheckResults
     public static function fromCheckResults(array $checkResults): Self
     {
         return new Self(
-            Self::meanWithNulls(array_map($checkResults, fn($checkResult) => $checkResult->ram_total)),
-            Self::meanWithNulls(array_map($checkResults, fn($checkResult) => $checkResult->ram_free)),
-            Self::meanWithNulls(array_map($checkResults, fn($checkResult) => $checkResult->ram_available)),
-            Self::meanWithNulls(array_map($checkResults, fn($checkResult) => $checkResult->download)),
-            Self::meanWithNulls(array_map($checkResults, fn($checkResult) => $checkResult->upload)),
-            Self::meanWithNulls(array_map($checkResults, fn($checkResult) => $checkResult->recent_touch_events)),
+            Self::meanWithNulls(array_map(fn($checkResult) => $checkResult->ram_total, $checkResults)),
+            Self::meanWithNulls(array_map(fn($checkResult) => $checkResult->ram_free, $checkResults)),
+            Self::meanWithNulls(array_map(fn($checkResult) => $checkResult->ram_available, $checkResults)),
+            Self::meanWithNulls(array_map(fn($checkResult) => $checkResult->download, $checkResults)),
+            Self::meanWithNulls(array_map(fn($checkResult) => $checkResult->upload, $checkResults)),
+            Self::meanWithNulls(array_map(fn($checkResult) => $checkResult->recent_touch_events, $checkResults)),
         );
     }
 
