@@ -34,11 +34,6 @@ final class CheckResults
     {
     }
 
-    public function isOffline(): bool
-    {
-        return !$this->isOnline();
-    }
-
     public function isOnline(): bool
     {
         return $this->icmp_request && ($this->ssh_login === 'success');
