@@ -5,10 +5,6 @@ namespace Homeinfo\SysMon2\Controller;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use TYPO3\CMS\Core\Database\ConnectionPool;
-
-use Generator;
 
 use Homeinfo\hwdb\Domain\Model\Deployment;
 use Homeinfo\hwdb\Domain\Repository\DeploymentRepository;
