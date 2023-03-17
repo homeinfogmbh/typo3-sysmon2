@@ -8,7 +8,11 @@ use Generator;
 use Homeinfo\hwdb\Domain\Model\Deployment;
 use Homeinfo\hwdb\Domain\Model\System;
 
+use Homeinfo\SysMon2\MeanCheckResults;
+
 class SystemWithCheckResults {
+    public readonly MeanCheckResults $mean;
+
     function __construct(
         public readonly int $id,
         public readonly ?int $group,
@@ -28,7 +32,9 @@ class SystemWithCheckResults {
         public readonly bool $updating,
         public readonly array $check_results,
     )
-    {}
+    {
+        $this->mean = MeanCheckResults::fromCheckResults($this->check_results);
+    }
 
     public function alwaysOffline(): bool
     {
