@@ -4,6 +4,9 @@ namespace Homeinfo\SysMon2\Domain\Model;
 
 use DateTime;
 
+const MIN_DOWNLOAD = 2048;  // Mbit/s
+const MIN_UPLOAD = 10;      // Mbit/s
+
 final class CheckResults
 {
     function __construct(
@@ -32,6 +35,16 @@ final class CheckResults
         public readonly ?DateTime $blackscreen_since
     )
     {
+    }
+
+    public function downloadIsOk(): bool
+    {
+        return $this->download !== NULL && $this->download >= MIN_DOWNLOAD;
+    }
+
+    public function uploadIsOk(): bool
+    {
+        return $this->upload !== NULL && $this->upload >= MIN_UPLOAD;
     }
 
     public function isOnline(): bool
