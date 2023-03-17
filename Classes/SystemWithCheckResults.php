@@ -33,7 +33,7 @@ class SystemWithCheckResults {
     public function alwaysOffline(): bool
     {
         foreach ($this->check_results as $checkResult)
-            if ($checkResult.isOnline())
+            if ($checkResult->isOnline())
                 return false;
         
         return true;
