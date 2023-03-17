@@ -48,8 +48,6 @@ final class CheckResultsRepository
                 )
             );
 
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($query->getSQL(), "Query: ");
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($query->getParameters(), "Params: ");
         $result = $query->executeQuery();
 
         foreach ($result->fetchAll() as &$record)
