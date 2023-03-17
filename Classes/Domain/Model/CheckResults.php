@@ -34,6 +34,16 @@ final class CheckResults
     {
     }
 
+    public function isOffline(): bool
+    {
+        return !$this->isOnline();
+    }
+
+    public function isOnline(): bool
+    {
+        return $this->icmp_request && ($this->ssh_login === 'success');
+    }
+
     public static function fromArray(array $array): Self {
         return new self(
             $array['id'],
