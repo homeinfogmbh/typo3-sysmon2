@@ -17,6 +17,7 @@ class UnauthenticatedAccess extends ActionController
 {
     function __construct()
     {
+        parent::__construct();
         $this->objectManager = GeneralUtility::makeInstance(ObjectManager::class);
         $this->deploymentRepository = $this->objectManager->get(DeploymentRepository::class);
         $this->systemRepository = $this->objectManager->get(SystemRepository::class);
@@ -25,25 +26,19 @@ class UnauthenticatedAccess extends ActionController
 
     public function systemDetailsAction()
     {
-        $deploymentRepository = GeneralUtility::makeInstance(ObjectManager::class)
-            ->get(DeploymentRepository::class);
-        $deployments = iterator_to_array($deploymentRepository->findByCustomerId(Self::getCustomerId()));
-        $systemRepository = GeneralUtility::makeInstance(ObjectManager::class)
-            ->get(SystemRepository::class);
+        $deployments = iterator_to_array($this->deploymentRepository->findByCustomerId(Self::getCustomerId()));
         $deploymentIds = [];
         
         foreach ($deployments as &$deployment)
             $deploymentIds[] = $deployment->id;
 
-        $systems = iterator_to_array($systemRepository->findByDeploymentIds($deploymentIds));
-        $checkResultsRepository = GeneralUtility::makeInstance(ObjectManager::class)
-            ->get(CheckResultsRepository::class);
+        $systems = iterator_to_array($this->systemRepository->findByDeploymentIds($deploymentIds));
         $systemIds = [];
             
         foreach ($systems as $system)
             $systemIds[] = $system->id;
 
-        $checkResults = iterator_to_array($checkResultsRepository->findLastMonthBySystems($systemIds));
+        $checkResults = iterator_to_array($this->checkResultsRepository->findLastMonthBySystems($systemIds));
         $systemsWithCheckResults = iterator_to_array(
             SystemWithCheckResults::fromSystemsDeploymentsAndCheckResults($systems, $deployments, $checkResults)
         );
