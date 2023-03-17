@@ -48,9 +48,7 @@ final class CheckResultsRepository
                 )
             );
 
-        $result = $query->executeQuery();
-
-        foreach ($result->fetchAll() as &$record)
+        foreach ($query->executeQuery()->fetchAll() as &$record)
         {
             yield CheckResults::fromArray($record);
         }
