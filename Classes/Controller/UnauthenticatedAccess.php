@@ -56,7 +56,7 @@ class UnauthenticatedAccess extends ActionController
             'notFitted',
             array_filter(
                 $systemsWithCheckResults,
-                fn($systemWithCheckResults) => $systemWithCheckResults->deployedAndFitted()
+                fn($systemWithCheckResults) => !$systemWithCheckResults->deployedAndFitted()
             )
         );
     }
