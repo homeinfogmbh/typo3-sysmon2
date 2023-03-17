@@ -54,6 +54,20 @@ class SystemWithCheckResults {
         return true;
     }
 
+    public function sensorsAlwaysCritical(): bool
+    {
+        foreach ($this->check_results as $checkResult)
+            if ($checkResult->sensors === 'success')
+                return false;
+        
+        return true;
+    }
+
+    public function deployedAndFitted(): bool
+    {
+        return $this->deployment !== NULL && $this->fitted;
+    }
+
     public function uploadAlwaysCritical(): bool
     {
         foreach ($this->check_results as $checkResult)
