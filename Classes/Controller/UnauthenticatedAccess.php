@@ -31,26 +31,34 @@ class UnauthenticatedAccess extends ActionController
         $systemsWithCheckResults = iterator_to_array(
             SystemWithCheckResults::fromSystemsDeploymentsAndCheckResults($systems, $deployments, $checkResults)
         );
-        $alwaysOffline = array_filter(
-            $systemsWithCheckResults,
-            fn($systemWithCheckResults) => $systemWithCheckResults->alwaysOffline()
+        $this->view->assign(
+            'alwaysOffline',
+            array_filter(
+                $systemsWithCheckResults,
+                fn($systemWithCheckResults) => $systemWithCheckResults->alwaysOffline()
+            )
         );
-        $this->view->assign('alwaysOffline', $alwaysOffline);
-        $downlaodUploadCritical = array_filter(
-            $systemsWithCheckResults,
-            fn($systemWithCheckResults) => $systemWithCheckResults->downloadAlwaysCritical() || $systemWithCheckResults->uploadAlwaysCritical()
+        $this->view->assign(
+            'downlaodUploadCritical',
+            array_filter(
+                $systemsWithCheckResults,
+                fn($systemWithCheckResults) => $systemWithCheckResults->downloadAlwaysCritical() || $systemWithCheckResults->uploadAlwaysCritical()
+            )
         );
-        $this->view->assign('downlaodUploadCritical', $downlaodUploadCritical);
-        $sensorsCritical = array_filter(
-            $systemsWithCheckResults,
-            fn($systemWithCheckResults) => $systemWithCheckResults->sensorsAlwaysCritical()
+        $this->view->assign(
+            'sensorsCritical',
+            array_filter(
+                $systemsWithCheckResults,
+                fn($systemWithCheckResults) => $systemWithCheckResults->sensorsAlwaysCritical()
+            )
         );
-        $this->view->assign('sensorsCritical', $sensorsCritical);
-        $notFitted = array_filter(
-            $systemsWithCheckResults,
-            fn($systemWithCheckResults) => $systemWithCheckResults->deployedAndFitted()
+        $this->view->assign(
+            'notFitted',
+            array_filter(
+                $systemsWithCheckResults,
+                fn($systemWithCheckResults) => $systemWithCheckResults->deployedAndFitted()
+            )
         );
-        $this->view->assign('notFitted', $notFitted);
     }
 
     private static function getCustomerId(): int
