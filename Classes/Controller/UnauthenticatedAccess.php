@@ -31,7 +31,11 @@ class UnauthenticatedAccess extends ActionController
         $systemsWithCheckResults = iterator_to_array(
             SystemWithCheckResults::fromSystemsDeploymentsAndCheckResults($systems, $deployments, $checkResults)
         );
-        $this->view->assign('systemsWithCheckResults', $systemsWithCheckResults);
+        $offlineSystemsWithCheckResults = array_filter(
+            $systemsWithCheckResults,
+            fn($systemWithCheckResults) => $systemWithCheckResults->alwaysOffline()
+        );
+        $this->view->assign('systemsWithCheckResults', $offlineSystemsWithCheckResults);
     }
 
     private static function getCustomerId(): int
