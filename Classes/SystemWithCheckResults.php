@@ -34,7 +34,6 @@ class SystemWithCheckResults {
     )
     {
         $this->mean = MeanCheckResults::fromCheckResults($this->check_results);
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->mean, "Mean: ");
     }
 
     public function alwaysOffline(): bool
