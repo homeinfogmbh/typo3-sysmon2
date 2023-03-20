@@ -25,7 +25,10 @@ class UnauthenticatedAccess extends ActionController
 
     public function systemDetailsAction()
     {
-        $deployments = iterator_to_array($this->deploymentRepository->findByCustomerId(Self::getCustomerId()));
+        if (($customerId = Self::getCustomerId()) === NULL)
+            return $this->errorAction();
+
+        $deployments = iterator_to_array($this->deploymentRepository->findByCustomerId($customerId));
         $systems = iterator_to_array($this->systemRepository->findByDeployments($deployments));
         $checkResults = iterator_to_array($this->checkResultsRepository->findLastMonthBySystems($systems));
         $systemsWithCheckResults = iterator_to_array(
@@ -61,9 +64,11 @@ class UnauthenticatedAccess extends ActionController
         );
     }
 
-    private static function getCustomerId(): int
+    private static function getCustomerId(): ?int
     {
-        //return $this->request->getArgument('customer');
-        return 1030020;
+        if (($customerId = $_GET['customer']) == NULL)
+            return NULL;
+
+        return intval($customerId);
     }
 }
