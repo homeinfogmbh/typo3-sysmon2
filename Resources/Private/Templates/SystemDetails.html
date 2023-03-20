@@ -102,7 +102,7 @@
 											<td>{checkedSystem.deployment.address.zip_code} {checkedSystem.deployment.address.city}</td>
 											<td>{checkedSystem.deployment.connection}</td>
 											<td>
-												<f:if condition="{checkedSystem.mean.download} == NULL">
+												<f:if condition="{checkedSystem.mean.download} > 0">
 													<f:then>
 														N/A
 													</f:then>
@@ -114,7 +114,7 @@
 												</f:if>
 											</td>
 											<td>
-												<f:if condition="{checkedSystem.mean.upload} == NULL">
+												<f:if condition="{checkedSystem.mean.upload} > 0">
 													<f:then>
 														N/A
 													</f:then>
