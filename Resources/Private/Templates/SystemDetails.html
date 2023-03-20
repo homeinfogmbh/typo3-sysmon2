@@ -101,8 +101,16 @@
 											<td>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.house_number}</td>
 											<td>{checkedSystem.deployment.address.zip_code} {checkedSystem.deployment.address.city}</td>
 											<td>{checkedSystem.deployment.connection}</td>
-											<td>{checkedSystem.mean.download}</td>
-											<td>{checkedSystem.mean.upload}</td>
+											<td>
+												<f:format.number decimals="1" decimalSeparator="," thousandsSeparator=".">
+													{checkedSystem.mean.download}
+												</f:format.number>
+											</td>
+											<td>
+												<f:format.number decimals="1" decimalSeparator="," thousandsSeparator=".">
+													{checkedSystem.mean.upload}
+												</f:format.number>
+											</td>
 										</tr>
 									</f:for>
 								</tbody>
