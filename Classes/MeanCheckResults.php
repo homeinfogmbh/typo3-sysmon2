@@ -28,12 +28,12 @@ class MeanCheckResults
 
     public function downloadMbps(): ?float
     {
-        return ($this->download === NULL) ? NULL : $this->download / 1024;
+        return ($this->download === NULL) ? NULL : ($this->download / 1024);
     }
 
     public function uploadMbps(): ?float
     {
-        return ($this->upload === NULL) ? NULL : $this->upload / 1024;
+        return ($this->upload === NULL) ? NULL : ($this->upload / 1024);
     }
 
     private static function meanWithNulls(array $values): ?float
