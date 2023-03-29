@@ -55,14 +55,6 @@ class UnauthenticatedAccess extends ActionController
                 fn($systemWithCheckResults) => $systemWithCheckResults->sensorsAlwaysCritical()
             )
         );
-        
-        $DUCRIT = array_filter(
-            $systemsWithCheckResults,
-            fn($systemWithCheckResults) => $systemWithCheckResults->downloadAlwaysCritical() || $systemWithCheckResults->uploadAlwaysCritical()
-        );
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($DUCRIT[0], "D/U crit first: ");
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($DUCRIT[0]->mean->uploadMbps(), "Upload: ");
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($DUCRIT[0]->mean->downloadMbps(), "Download: ");
         $this->view->assign(
             'notFitted',
             array_filter(
