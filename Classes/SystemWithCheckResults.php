@@ -62,7 +62,7 @@ class SystemWithCheckResults {
     public function sensorsAlwaysCritical(): bool
     {
         foreach ($this->check_results as $checkResult)
-            if ($checkResult->sensors === 'success')
+            if ($checkResult->sensors !== 'failed')
                 return false;
         
         return true;
