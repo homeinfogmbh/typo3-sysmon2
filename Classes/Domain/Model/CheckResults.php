@@ -52,6 +52,16 @@ final class CheckResults
         return $this->icmp_request && ($this->ssh_login === 'success');
     }
 
+    public function downloadMbps(): float
+    {
+        return ($this->download === NULL) ? NULL : $this->download / 1024;
+    }
+
+    public function uploadMbps(): float
+    {
+        return ($this->upload === NULL) ? NULL : $this->upload / 1024;
+    }
+
     public static function fromArray(array $array): Self
     {
         return new self(

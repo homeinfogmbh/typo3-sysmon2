@@ -105,7 +105,7 @@
 												<f:if condition="{checkedSystem.mean.download} > 0">
 													<f:then>
 														<f:format.number decimals="2" decimalSeparator="," thousandsSeparator=".">
-															{checkedSystem.mean.download}
+															{checkedSystem.mean.downloadMbps()}
 														</f:format.number> Mbit/s
 													</f:then>
 													<f:else>
@@ -117,7 +117,7 @@
 												<f:if condition="{checkedSystem.mean.upload} > 0">
 													<f:then>
 														<f:format.number decimals="2" decimalSeparator="," thousandsSeparator=".">
-															{checkedSystem.mean.upload}
+															{checkedSystem.mean.uploadMbps()}
 														</f:format.number> Mbit/s
 													</f:then>
 													<f:else>
