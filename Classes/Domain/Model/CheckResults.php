@@ -4,8 +4,8 @@ namespace Homeinfo\SysMon2\Domain\Model;
 
 use DateTime;
 
-const MIN_DOWNLOAD = 2048;  // Mbit/s
-const MIN_UPLOAD = 10;      // Mbit/s
+const MIN_DOWNLOAD = 1953.125;  // Mebibit/s
+const MIN_UPLOAD = 488.28125;   // Mebibit/s
 
 final class CheckResults
 {
