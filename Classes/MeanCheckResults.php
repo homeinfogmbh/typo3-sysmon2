@@ -26,6 +26,16 @@ class MeanCheckResults
         );
     }
 
+    public function downloadMbps(): float
+    {
+        return ($this->download === NULL) ? NULL : $this->download / 1024;
+    }
+
+    public function uploadMbps(): float
+    {
+        return ($this->upload === NULL) ? NULL : $this->upload / 1024;
+    }
+
     private static function meanWithNulls(array $values): ?float
     {
         return Self::mean(array_filter($values, fn($value) => $value !== NULL));
