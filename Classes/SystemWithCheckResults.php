@@ -61,11 +61,16 @@ class SystemWithCheckResults {
 
     public function sensorsAlwaysCritical(): bool
     {
+        $result = false;
+
         foreach ($this->check_results as $checkResult)
             if ($checkResult->sensors === 'success')
                 return false;
+
+            if ($checkResult->sensors === 'failed')
+                $result = true;
         
-        return true;
+        return $result;
     }
 
     public function uploadAlwaysCritical(): bool
