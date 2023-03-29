@@ -59,6 +59,12 @@ class SystemWithCheckResults {
         return $this->deployment !== NULL && $this->fitted;
     }
 
+    /**
+     * System is considered overheated, iff it was never measured as
+     * not overheated, but measured as overheated.
+     * Thus the system was always either overheated or could not be
+     * measured.
+     */
     public function sensorsAlwaysCritical(): bool
     {
         $result = false;
