@@ -789,38 +789,3 @@ ul.realestate_feature {
   padding: 0 20px;
   max-width: 600px !important;
 }
-
-.dash-table input[type="checkbox"] {
-  display: none;
-}
-
-.dash-table label {
-  display: flex;
-  width: 20px;
-  height: 20px;
-  background: #fff;
-  border-radius: 50%;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-}
-
-.dash-table table.table tbody tr td:last-child label {
-  margin-left: auto;
-  margin-right: 0;
-}
-
-.dash-table label span {
-  display: block;
-  width: 10px;
-  height: 10px;
-  background: #000;
-  content: "";
-  border-radius: 50%;
-  transition: .3s ease all;
-  opacity: 0;
-}
-
-.dash-table input[type="checkbox"]:checked + label span {
-  opacity: 1;
-}
