@@ -62,7 +62,7 @@ class UnauthenticatedAccess extends ActionController
                 fn($systemWithCheckResults) => !$systemWithCheckResults->deployedAndFitted()
             )
         );
-        $this->view->assign('date', strtotime("last day of previous month"));
+        $this->view->assign('date', strtotime("first day of previous month"));
     }
 
     private static function getCustomerId(): ?int
