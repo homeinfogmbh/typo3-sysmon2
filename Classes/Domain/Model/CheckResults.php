@@ -76,8 +76,8 @@ final class CheckResults
             $array['sensors'],
             $array['in_sync'],
             $array['recent_touch_events'],
-            (($offline_since = $array['offline_since']) === null) ? null : new DateTime($offline_since),
-            (($blackscreen_since = $array['blackscreen_since']) === null) ? null : new DateTime($blackscreen_since),
+            (($offline_since = $array['offline_since']) === NULL) ? NULL : new DateTime($offline_since),
+            (($blackscreen_since = $array['blackscreen_since']) === NULL) ? NULL : new DateTime($blackscreen_since),
         );
     }
 }
