@@ -75,8 +75,8 @@ span.nav_triger {
 }
 
 .bodyWrap.dashboard {
-  background-color: #78B928;
-  background-image: linear-gradient(to bottom, #78B928, #5E911F);
+  background-color: #008FCC;
+  background-image: linear-gradient(to bottom, #008FCC, #0a58ca);
   color: #fff;
   padding-top: 40px;
 }
@@ -134,7 +134,7 @@ h1.dash-title {
   color: #fff;
   font-size: 16px;
   line-height: 1.3;
-  padding: 13px 15px;
+  padding: 5px 7px;
   border: 0;
 }
 
@@ -149,7 +149,7 @@ h1.dash-title {
 .location_pin {
   display: table;
   margin-left: auto;
-  background: #78B928;
+  background: #212529;
   color: #fff;
   font-size: 12px;
   font-weight: 500;
@@ -216,8 +216,8 @@ h1.dash-title {
 
 .SupportanfrageBox {
   text-align: center;
-  background-color: #74B326;
-  background-image: linear-gradient(222deg, #74B326, #649B21);
+  background-color: #008FCC;
+  background-image: linear-gradient(222deg, #008FCC, #00567B);
   padding: 40px 45px 25px;
   border-radius: 20px;
   margin-bottom: 20px;
@@ -787,7 +787,7 @@ ul.realestate_feature {
 
 .tableModal .modal-dialog {
   padding: 0 20px;
-  max-width: 600px !important;
+  max-width: 800px !important;
 }
 
 .dash-table input[type="checkbox"] {

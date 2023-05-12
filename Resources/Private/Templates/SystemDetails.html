@@ -47,7 +47,7 @@
 										<th>ID</th>
 										<th>Adresse</th>
 										<th>Ort</th>
-										<th>Anschluß</th>
+										<th>Anschluss</th>
 										<th>Modell</th>
 										<th>Letzte Datenübertragung</th>
 									</tr>
@@ -70,10 +70,7 @@
 													</f:else>
 												</f:if>
 											</td>
-											<td>
-												<input type="checkbox" class="tableCheckbox" id="checkobx-5">
-												<label for="checkobx-5"><span></span></label>
-											</td>
+
 										</tr>
 									</f:for>
 								</tbody>
@@ -85,7 +82,7 @@
 					</div>
 					<div class="list_box">
 						<h2>Download/Upload kritisch im <f:format.date format="%B">{date}</f:format.date></h2>
-						<p>Übersicht der Systeme deren Übertragungsgeschwindigkeit unter den Mindestanforderungen lag. </br>(min. Download = 1.9 Mbit/s, min. Upload  = 0.48 Mbits/s)
+						<p>Übersicht der Systeme deren Übertragungsgeschwindigkeit unter den Mindestanforderungen lag. </br>(min. Download = 1.9 Mbit/s, min. Upload  = 0.35 Mbits/s)
 						</p>
 						<div class="dash-table">
 							<table class="table">
@@ -94,12 +91,12 @@
 										<th>ID</th>
 										<th>Adresse</th>
 										<th>Ort</th>
-										<th>Anschluß</th>
+										<th>Anschluss</th>
 										<th>Downstream</th>
 										<th>Upstream</th>
 									</tr>
 								</thead>
-								<tbody>
+								<tbody">
 									<f:for each="{downlaodUploadCritical}" as="checkedSystem">
 										<tr>
 											<td>{checkedSystem.id}</td>
@@ -139,63 +136,23 @@
 							<img src="/typo3conf/ext/sysmon2/Resources/Public/Icons/lightbulb.svg" alt="lightbulb"> Was können Sie tun?
 						</a>
 					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="list_box">
-								<h2>Nicht verbaute Displays</h2>
-								<p>Displays die bereits für Sie eingerichtet wurden</p>
-								<div class="dash-list">
-									<h3>In Bereitschaft stehende Displays</h3>
-									<ul>
-										<f:for each="{notFitted}" as="checkedSystem">
-											<li>
-												<p>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.house_number}</p>
-												<p>{checkedSystem.deployment.address.zip_code} {checkedSystem.deployment.address.city}</p>
-											</li>
-										</f:for>
-									</ul>
-								</div>
-								<a href="#" class="location_pin" data-bs-toggle="modal" data-bs-target="#tableModal3">
-									<img src="/typo3conf/ext/sysmon2/Resources/Public/Icons/lightbulb.svg" alt="lightbulb"> Was können Sie tun?
-								</a>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="list_box">
-								<h2>Überhitze Systeme</h2>
-								<p>Die empfohlene Höchsttemeratur dauerhaft überschritten</p>
-								<div class="dash-list">
-									<h3>Warung vor Überhitzung</h3>
-									<ul>
-										<f:for each="{sensorsCritical}" as="checkedSystem">
-											<li>
-												<p>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.house_number}</p>
-												<p>{checkedSystem.deployment.address.zip_code} {checkedSystem.deployment.address.city}</p>
-											</li>
-										</f:for>
-									</ul>
-								</div>
-								<a href="#" class="location_pin" data-bs-toggle="modal" data-bs-target="#tableModal4">
-									<img src="/typo3conf/ext/sysmon2/Resources/Public/Icons/lightbulb.svg" alt="lightbulb"> Was können Sie tun?
-								</a>
-							</div>
-						</div>
-					</div>
+
 				</div>
 				<div class="dashboard_right">
-					<a href="#" class="dashdigital">
-						<img src="/typo3conf/ext/sysmon2/Resources/Public/Icons/DasDigitaleBrett_Logo.svg" alt="DasDigitaleBrett_Logo">
+					<a href="https://www.homeinfo.de" class="dashdigital">
+						<img src="/typo3conf/ext/sysmon2/Resources/Public/Icons/Homeinfo-_ohne-Icon-_BW.png" alt="HONEINFO_Logo">
 					</a>
 					<div class="SupportanfrageBox">
 						<img src="/typo3conf/ext/sysmon2/Resources/Public/Icons/rocket.svg" class="rocket">
 						<h3>Supportanfrage</h3>
 						<p>Serviceanfrage zu dieser Seite an die Technik</p>
-						<a href="#" class="whiteBtn">SENDEN</a>
+						<a href="mailto:info@homeinfo.de" class="whiteBtn">SENDEN</a>
 					</div>
 					<div class="rightBottom">
-						<p>HOMEINFO SERVICE GMBH</p>
-						<h4>0511 / 12 34 56</h4>
-						<a href="mailto:helpdesk@homeinfoservicegmbh.de">helpdesk@homeinfoservicegmbh.de</a>
+
+						<h4>HOMEINFO</h4>
+						<p>Digitale Informationssysteme GmbH</p>
+						<a href="mailto:info@homeinfo.de">info@homeinfo.de</a>
 					</div>
 				</div>
 			</div>
@@ -211,7 +168,57 @@
 						</button>
 						<h2>OFFLINE HILFE</h2>
 						<h4>Hilfe bei Konnektivitätsproblemen</h4>
-						<p>Beauftragen Sie einen Neustart vor Ort durch den Hauswart. Sollte der Neustart keinen Erfolg bringen liegt es in der Regel an einer fehlenden Internet-Verbindung. Überprüfen Sie bei die Internetverbindung, und führen Sie einen Neustart des Modems durch. Wenden Sie sich bei fehlender Internetverbindung an Ihren Internet Provider. Wenn hier ein funktionierendes Modem durch den Ihren Internet Provider bestätigt wurde, ist es sinnvoll das Gerät durch unsere Techniker vor Ort zu prüfen oder dass Display einzuschicken. (Siehe 'BRING-IN-SERVICE')</p>
+						<p>
+							Eine nicht vorhandene Onlineverbindung kann viele Gründe haben und oft nur vor Ort am Display ermittelt werden.</br>
+							<ol style="list-style:decimal; padding-left: 30px; text-transform: uppercase; font-weight: bold;" >
+  <li>Keine Internetverbindung</li>
+  <li>Das Display zeigt eine Fehlermeldung an</li>
+  <li>Das Display ist schwarz oder aus</li>
+	<li>Das Display ist eingefroren oder weist einen Bildfehler auf</li>
+</ol></br>
+							Um einen reibungslosen Betrieb eines Displays zu gewährleisten ist es erforderlich, dass es nicht länger als drei Monate offline ist. Anschließend kann es sein, dass keine Updates mehr per Fernwartung aufzuspielen sind und das Display aufwendig manuell kostenpflichtig geupdatet werden muss. </br>
+
+							<p style="font-weight: bold; margin: 20px 0 5px 0;;">1. KEINE INTERNETVERBINDUNG</p>
+
+							<ol style="list-style-type: lower-alpha; padding-left: 30px;" >
+							<li>Starten Sie das Modem/Router neu</li>
+							<li>Starten Sie das Display neu</li>
+							<li>Prüfen Sie am Display (5 Sekunden lang auf Ihr Logo oben rechts touchen), ob die Internetverbindung hergestellt werden konnte</li>
+							<li>Sollte jetzt eine Onlineverbindung vorhanden sein;nutzen Sie den Update Service (US), damit wir das Display sofort online warten können</li>
+							<li>Sollte dennoch keine Verbindung hergestellt werden können</li>
+								<ul style="list-style-position: outside; list-style: square; padding-left: 15px;">
+									<li>Nehmen Sie das Display ab und kontrollieren, ob die Netzwerkleuchte hinten am Display blinkt. Sollte sie dauerhaft leuchten oder gar nicht an sein, liegt ein Defekt vor. Nutzen Sie den BringIn Service (BS)</li>
+									<li>Leuchten die Netzwerkanschlüsse korrekt haben aber trotzdem keine Internetverbindung, sprechen Sie mit Ihrem Provider und lassen die Datenrate und die Funktionsfähigkeit Ihres Modems/Router kontrollieren</li>
+									<li>Lassen Sie die Netzwerkleitung und Anschlüsse vom Modem/Router zum Display durch einen Elektriker oder vom Hausmeister überprüfen</li>
+									<li> Nehmen Sie das Display ab und schließen Sie es an einen anderen funktionierenden Netzwerkanschluss an und überprüfen die Onlineverbindung (5 Sekunden das Logo touchen).</li>
+									<li>Sollte alles kein Erfolg haben, Nutzen Sie den BringIn Service (BS)</li>
+									</ul></ol>
+
+
+						<p style="font-weight: bold; margin: 20px 0 5px 0;;">2. DAS DISPLAY ZEIGT EINE FEHLERMELDUNG AN</p>
+							<ol style="list-style-type: lower-alpha; padding-left: 30px;" >
+							<li>Starten Sie das Display neu</li>
+								<ul style="list-style-position: outside; list-style: square; padding-left: 15px;">
+									<li>Sollte es anschließend funktionieren, nutzen Sie den Update Service (US)</li>
+									<li>Sollte die Fehlermeldung nicht verschwinden nutzen Sie den BringIn Service (BS) oder Fernsupport Service (FS)</li>
+								</ul>
+							<li>Sollte der Fehler nicht behoben werden können, muss das Display zur Reparatur eingeschickt werden beauftragen Sie uns mit der Wartung/Reparatur (BringIn Service (BS))</li>
+						</ol>
+
+							<p style="font-weight: bold; margin: 20px 0 5px 0;;">3. DAS DISPLAY IST SCHWARZ ODER AUS</p>
+							<ol style="list-style-type: lower-alpha; padding-left: 30px;" >
+								<li>Starten Sie das Display neu</li>
+								<li>Sollte es anschließend funktionieren, beauftragen Sie uns mit der Fernwartung des Systems (Update Service (US))</li>
+								<li>Sollte es weiterhin schwarz sein, beauftragen Sie uns mit der Wartung/Reparatur(Bring In Service)</li>
+							</ol>
+
+							<p style="font-weight: bold; margin: 20px 0 5px 0;;">4. DAS DISPLAY IST EINGEFROREN ODER WEIST EINEN BILDFEHLER AUF</p>
+							<ol style="list-style-type: lower-alpha; padding-left: 30px;" >
+							<li>Starten Sie das Display neu</li>
+							<li>Sollte es anschließend funktionieren, beauftragen Sie uns mit der Fernwartung des Systems (Update Service (US))</li>
+							<li>Sollte es weiterhin eingefroren sein oder einen Bildfehler aufweisen,beauftragen Sie uns mit der Wartung/Reparatur (BringIn Service (BS))</li>
+							</ol>
+</p>
 					</div>
 				</div>
 			</div>
@@ -227,7 +234,11 @@
 						</button>
 						<h2>UPLAOD/DOWNLOAD</h2>
 						<h4>Hinweis zur Internetbandbreite</h4>
-						<p>Unsere Geräte erfordern mindestens 1.9 Mbit/s Download und 0.48 Mbits/s Upload. Bitte stellen Sie sicher, dass diese Bandbreite ständig verfügbar ist und besprechen Sie dies mit Ihrem Internet Provider. Eine nicht ausreichende Bandbreite kann die Funktionalität beeinträchtigen.</p>
+						<p>Unsere Geräte erfordern mindestens 1.9 Mbit/s Download und 0.35 Mbits/s Upload. Bitte stellen Sie sicher, dass diese Bandbreite ständig verfügbar ist und besprechen Sie dies mit Ihrem Internet Provider. Eine nicht ausreichende Bandbreite kann die Funktionalität beeinträchtigen.</br></br>
+							Wir empfehlen 6 Mbit/s Download und 1 Mbit/s Upload. Jedes Display sollte über ein Modem/Router angeschlossen sein.</br></br>
+							Sprechen Sie mit Ihrem Provider und lassen die Datenrate und die Funktionsfähigkeit Ihres Modems/Router kontrollieren
+							Lassen Sie die Netzwerkleitung und Anschlüsse vom Modem/Router zum Display überprüfen.
+							</p>
 					</div>
 				</div>
 			</div>
