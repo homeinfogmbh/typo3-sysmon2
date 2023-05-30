@@ -2,6 +2,7 @@
 
 namespace Homeinfo\SysMon2;
 
+use DateInterval;
 use DateTime;
 use Generator;
 
