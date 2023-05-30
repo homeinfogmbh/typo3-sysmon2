@@ -72,7 +72,7 @@ class UnauthenticatedAccess extends ActionController
             'outOfSync',
             array_filter(
                 $systemsWithCheckResults,
-                fn($systemWithCheckResults) => Self::isOutOfSync($systemWithCheckResults, new DateTime())
+                fn($systemWithCheckResults) => $systemWithCheckResults::isOutOfSync()
             )
         );
     }
@@ -83,13 +83,5 @@ class UnauthenticatedAccess extends ActionController
             return NULL;
 
         return intval($customerId);
-    }
-
-    private static function isOutOfSync(SystemWithCheckResults $systemWithCheckResults, DateTime $now): bool
-    {
-        if (($lastSync = $systemWithCheckResults->last_sync) === NULL)
-            return true;
-
-        return $lastSync < $now->add(DateInterval::createFromDateString('48 hours'));
     }
 }

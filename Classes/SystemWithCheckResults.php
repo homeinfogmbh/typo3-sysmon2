@@ -88,6 +88,14 @@ class SystemWithCheckResults {
         return true;
     }
 
+    public function isOutOfSync(): bool
+    {
+        if (($lastSync = $this->last_sync) === NULL)
+            return true;
+
+        return $lastSync < (new DateTime())->add(DateInterval::createFromDateString('48 hours'));
+    }
+
     public static function fromSystemsDeploymentsAndCheckResults(array $systems, array $deployments, array $checkResults): Generator
     {
         foreach ($systems as $system)

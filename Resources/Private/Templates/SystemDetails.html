@@ -161,6 +161,10 @@
 										<td>{system.deployment.connection}</td>
 										<td>{system.model}</td>
 										<td>
+											<f:if condition="{system.outOfSync}">
+												<!--Here be red background-->
+												!!!
+											</f:if>
 											<f:if condition="{system.last_sync} === NULL">
 												<f:then>
 													Never
