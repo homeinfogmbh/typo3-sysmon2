@@ -91,7 +91,10 @@ class UnauthenticatedAccess extends ActionController
             return true;
             
         \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump(
-            ["system" => $system->id, "ood" => $lastSync < $now->add(DateInterval::createFromDateString('48 hours'))],
+            [
+                "system" => $systemWithCheckResults->id,
+                "ood" => $lastSync < $now->add(DateInterval::createFromDateString('48 hours'))
+            ],
             "Out of date: "
         );
         return $lastSync < $now->add(DateInterval::createFromDateString('48 hours'));
