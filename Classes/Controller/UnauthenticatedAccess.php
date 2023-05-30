@@ -40,28 +40,28 @@ class UnauthenticatedAccess extends ActionController
             'alwaysOffline',
             array_filter(
                 $systemsWithCheckResults,
-                fn($systemWithCheckResults) => $systemWithCheckResults->alwaysOffline()
+                fn($systemWithCheckResults) => $systemWithCheckResults->isAlwaysOffline()
             )
         );
         $this->view->assign(
             'downlaodUploadCritical',
             array_filter(
                 $systemsWithCheckResults,
-                fn($systemWithCheckResults) => $systemWithCheckResults->downloadAlwaysCritical() || $systemWithCheckResults->uploadAlwaysCritical()
+                fn($systemWithCheckResults) => $systemWithCheckResults->isDownloadAlwaysCritical() || $systemWithCheckResults->isUploadAlwaysCritical()
             )
         );
         $this->view->assign(
             'sensorsCritical',
             array_filter(
                 $systemsWithCheckResults,
-                fn($systemWithCheckResults) => $systemWithCheckResults->sensorsAlwaysCritical()
+                fn($systemWithCheckResults) => $systemWithCheckResults->isSensorsAlwaysCritical()
             )
         );
         $this->view->assign(
             'notFitted',
             array_filter(
                 $systemsWithCheckResults,
-                fn($systemWithCheckResults) => !$systemWithCheckResults->deployedAndFitted()
+                fn($systemWithCheckResults) => !$systemWithCheckResults->isDeployedAndFitted()
             )
         );
         $this->view->assign('date', strtotime("first day of previous month"));

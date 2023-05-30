@@ -37,7 +37,7 @@ class SystemWithCheckResults {
         $this->mean = MeanCheckResults::fromCheckResults($this->check_results);
     }
 
-    public function alwaysOffline(): bool
+    public function isAlwaysOffline(): bool
     {
         foreach ($this->check_results as $checkResult)
             if ($checkResult->isOnline())
@@ -46,44 +46,10 @@ class SystemWithCheckResults {
         return true;
     }
 
-    public function downloadAlwaysCritical(): bool
+    public function isDownloadAlwaysCritical(): bool
     {
         foreach ($this->check_results as $checkResult)
             if ($checkResult->downloadOk())
-                return false;
-        
-        return true;
-    }
-
-    public function deployedAndFitted(): bool
-    {
-        return $this->deployment !== NULL && $this->fitted;
-    }
-
-    /**
-     * System is considered overheated, iff it was never measured as
-     * not overheated, but measured as overheated.
-     * Thus the system was always either overheated or could not be
-     * measured.
-     */
-    public function sensorsAlwaysCritical(): bool
-    {
-        $result = false;
-
-        foreach ($this->check_results as $checkResult)
-            if ($checkResult->sensors === 'success')
-                return false;
-
-            if ($checkResult->sensors === 'failed')
-                $result = true;
-        
-        return $result;
-    }
-
-    public function uploadAlwaysCritical(): bool
-    {
-        foreach ($this->check_results as $checkResult)
-            if ($checkResult->uploadOk())
                 return false;
         
         return true;
@@ -95,6 +61,40 @@ class SystemWithCheckResults {
             return true;
 
         return $lastSync < $now->add(DateInterval::createFromDateString('48 hours'));
+    }
+
+    public function isUploadAlwaysCritical(): bool
+    {
+        foreach ($this->check_results as $checkResult)
+            if ($checkResult->uploadOk())
+                return false;
+        
+        return true;
+    }
+
+    public function isDeployedAndFitted(): bool
+    {
+        return $this->deployment !== NULL && $this->fitted;
+    }
+
+    /**
+     * System is considered overheated, iff it was never measured as
+     * not overheated, but measured as overheated.
+     * Thus the system was always either overheated or could not be
+     * measured.
+     */
+    public function isSensorsAlwaysCritical(): bool
+    {
+        $result = false;
+
+        foreach ($this->check_results as $checkResult)
+            if ($checkResult->sensors === 'success')
+                return false;
+
+            if ($checkResult->sensors === 'failed')
+                $result = true;
+        
+        return $result;
     }
 
     public static function fromSystemsDeploymentsAndCheckResults(array $systems, array $deployments, array $checkResults): Generator
