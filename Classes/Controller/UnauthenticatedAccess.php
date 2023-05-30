@@ -79,7 +79,7 @@ class UnauthenticatedAccess extends ActionController
 
     private static function isOutOfSync(System $system): bool
     {
-        if (($lastSync = $system->last_sync) === null)
+        if (($lastSync = $system->last_sync) === NULL)
             return true;
             
         return $lastSync < (new DateTime())->modify('-24 hours');
