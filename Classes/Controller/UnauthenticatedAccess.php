@@ -79,6 +79,7 @@ class UnauthenticatedAccess extends ActionController
 
     private static function isOutOfSync(System $system): bool
     {
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($system, "System: ");
         if (($lastSync = $system->last_sync) === NULL)
             return true;
             
