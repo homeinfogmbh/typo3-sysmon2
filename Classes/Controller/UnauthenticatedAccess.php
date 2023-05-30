@@ -3,6 +3,7 @@
 namespace Homeinfo\SysMon2\Controller;
 
 use DateTime;
+use DateInterval;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
@@ -16,7 +17,6 @@ use Homeinfo\hwdb\Domain\Repository\SystemRepository;
 use Homeinfo\SysMon2\Domain\Repository\CheckResultsRepository;
 use Homeinfo\SysMon2\SystemWithCheckResults;
 
-const OUT_OF_SYNC_THRESHOLD = 24 * 60 * 60;
 
 class UnauthenticatedAccess extends ActionController
 {
@@ -90,6 +90,6 @@ class UnauthenticatedAccess extends ActionController
         if (($lastSync = $systemWithCheckResults->last_sync) === NULL)
             return true;
             
-        return $lastSync < $now - OUT_OF_SYNC_THRESHOLD;
+        return $lastSync < $now - DateInterval::createFromDateString('48 hours');
     }
 }
