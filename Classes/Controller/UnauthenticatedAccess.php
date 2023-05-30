@@ -79,12 +79,9 @@ class UnauthenticatedAccess extends ActionController
 
     private static function isOutOfSync(SystemWithCheckResults $systemWithCheckResults): bool
     {
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($systemWithCheckResults, "System: ");
-
         if (($lastSync = $systemWithCheckResults->last_sync) === NULL)
             return true;
             
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($lastSync < (new DateTime())->modify('-24 hours'), "Out of date: ");
-        return $lastSync < (new DateTime())->modify('-24 hours');
+        return $lastSync < (new DateTime())->modify('-48 hours');
     }
 }
