@@ -63,6 +63,7 @@ class UnauthenticatedAccess extends ActionController
             )
         );
         $this->view->assign('date', strtotime("first day of previous month"));
+        $this->view->assign('outOfSync', array_filter($systems, Self::isOutOfSync));
     }
 
     private static function getCustomerId(): ?int
@@ -71,5 +72,13 @@ class UnauthenticatedAccess extends ActionController
             return NULL;
 
         return intval($customerId);
+    }
+
+    private static function isOutOfSync(array $system): bool
+    {
+        if (($lastSync = $system->last_sync) === null)
+            return true;
+            
+        return $lastSync < (new DateTime())->modify('-2 hours');
     }
 }
