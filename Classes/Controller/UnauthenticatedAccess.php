@@ -84,6 +84,7 @@ class UnauthenticatedAccess extends ActionController
         if (($lastSync = $systemWithCheckResults->last_sync) === NULL)
             return true;
             
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($lastSync < (new DateTime())->modify('-24 hours'), "Out of date: ");
         return $lastSync < (new DateTime())->modify('-24 hours');
     }
 }
