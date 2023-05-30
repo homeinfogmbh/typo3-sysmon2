@@ -44,7 +44,7 @@ class UnauthenticatedAccess extends ActionController
             )
         );
         $this->view->assign(
-            'downlaodUploadCritical',
+            'downloadUploadCritical',
             array_filter(
                 $systemsWithCheckResults,
                 fn($systemWithCheckResults) => $systemWithCheckResults->isDownloadAlwaysCritical() || $systemWithCheckResults->isUploadAlwaysCritical()

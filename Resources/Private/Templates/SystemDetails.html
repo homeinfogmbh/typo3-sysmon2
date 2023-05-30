@@ -97,7 +97,7 @@
 									</tr>
 								</thead>
 								<tbody">
-									<f:for each="{downlaodUploadCritical}" as="checkedSystem">
+									<f:for each="{downloadUploadCritical}" as="checkedSystem">
 										<tr>
 											<td>{checkedSystem.id}</td>
 											<td>{checkedSystem.deployment.address.street} {checkedSystem.deployment.address.house_number}</td>
@@ -161,7 +161,7 @@
 										<td>{system.deployment.connection}</td>
 										<td>{system.model}</td>
 										<td>
-											<f:if condition="{system.outOfSync}">
+											<f:if condition="{system.downloadCritical} || {system.uploadCritical}">
 												<!--Here be red background-->
 												!!!
 											</f:if>
