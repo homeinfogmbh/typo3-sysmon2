@@ -154,17 +154,20 @@
 							</thead>
 							<tbody>
 								<f:for each="{outOfSync}" as="system">
-									<tr>
+									<f:if condition="{system.uploadOrDownloadAlwaysCritical}">
+										<f:then>
+											<tr style="background-color:#33475b">
+										</f:then>
+										<f:else>
+											<tr>
+										</f:else>
+									</f:if>
 										<td>{system.id}</td>
 										<td>{system.deployment.address.street} {system.deployment.address.house_number}</td>
 										<td>{system.deployment.address.zip_code} {system.deployment.address.city}</td>
 										<td>{system.deployment.connection}</td>
 										<td>{system.model}</td>
 										<td>
-											<f:if condition="{system.uploadOrDownloadAlwaysCritical}">
-												<!--Here be red background-->
-												!!!
-											</f:if>
 											<f:if condition="{system.last_sync} === NULL">
 												<f:then>
 													Never
