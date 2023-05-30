@@ -66,7 +66,7 @@ class UnauthenticatedAccess extends ActionController
             )
         );
         $this->view->assign('date', strtotime("first day of previous month"));
-        $this->view->assign('outOfSync', array_filter($systems, fn($system) => Self::isOutOfSync($system)));
+        $this->view->assign('outOfSync', array_filter($systemsWithCheckResults, fn($systemWithCheckResults) => Self::isOutOfSync($systemWithCheckResults)));
     }
 
     private static function getCustomerId(): ?int
@@ -77,9 +77,8 @@ class UnauthenticatedAccess extends ActionController
         return intval($customerId);
     }
 
-    private static function isOutOfSync(System $system): bool
+    private static function isOutOfSync(SystemWithCheckResults $systemWithCheckResults): bool
     {
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($system, "System: ");
         if (($lastSync = $system->last_sync) === NULL)
             return true;
             
