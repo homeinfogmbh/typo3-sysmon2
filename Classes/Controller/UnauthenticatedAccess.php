@@ -89,14 +89,7 @@ class UnauthenticatedAccess extends ActionController
     {
         if (($lastSync = $systemWithCheckResults->last_sync) === NULL)
             return true;
-            
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump(
-            [
-                "system" => $systemWithCheckResults,
-                "ood" => $lastSync < $now->add(DateInterval::createFromDateString('48 hours'))
-            ],
-            "Out of date: "
-        );
+
         return $lastSync < $now->add(DateInterval::createFromDateString('48 hours'));
     }
 }
