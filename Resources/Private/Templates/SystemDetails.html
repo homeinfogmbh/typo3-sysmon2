@@ -136,7 +136,49 @@
 							<img src="/typo3conf/ext/sysmon2/Resources/Public/Icons/lightbulb.svg" alt="lightbulb"> Was können Sie tun?
 						</a>
 					</div>
+				</div>
+				<div class="list_box">
+					<h2>Neue Tabelle auf Landingpage</h2>
+					<p>Neue Tabelle auf Landingpage deren letzte Aktualisierung älter als 48h</p>
+					<div class="dash-table">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Adresse</th>
+									<th>Ort</th>
+									<th>Anschluss</th>
+									<th>Modell</th>
+									<th>Letzte Datenübertragung</th>
+								</tr>
+							</thead>
+							<tbody>
+								<f:for each="{outOfSync}" as="system">
+									<tr>
+										<td>{system.id}</td>
+										<td>{system.deployment.address.street} {system.deployment.address.house_number}</td>
+										<td>{system.deployment.address.zip_code} {system.deployment.address.city}</td>
+										<td>{system.deployment.connection}</td>
+										<td>{system.model}</td>
+										<td>
+											<f:if condition="{system.last_sync} === NULL">
+												<f:then>
+													Never
+												</f:then>
+												<f:else>
+													<f:format.date format="d.m.Y">{system.last_sync}</f:format.date>
+												</f:else>
+											</f:if>
+										</td>
 
+									</tr>
+								</f:for>
+							</tbody>
+						</table>
+					</div>
+					<a href="#" class="location_pin" data-bs-toggle="modal" data-bs-target="#tableModal1">
+						<img src="/typo3conf/ext/sysmon2/Resources/Public/Icons/lightbulb.svg" alt="lightbulb"> Was können Sie tun?
+					</a>
 				</div>
 				<div class="dashboard_right">
 					<a href="https://www.homeinfo.de" class="dashdigital">
