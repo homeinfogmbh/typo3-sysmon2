@@ -66,7 +66,13 @@ class UnauthenticatedAccess extends ActionController
             )
         );
         $this->view->assign('date', strtotime("first day of previous month"));
-        $this->view->assign('outOfSync', array_filter($systemsWithCheckResults, fn($systemWithCheckResults) => Self::isOutOfSync($systemWithCheckResults)));
+        $this->view->assign(
+            'outOfSync',
+            array_filter(
+                $systemsWithCheckResults,
+                fn($systemWithCheckResults) => Self::isOutOfSync($systemWithCheckResults, new DateTime())
+            )
+        );
     }
 
     private static function getCustomerId(): ?int
@@ -77,11 +83,11 @@ class UnauthenticatedAccess extends ActionController
         return intval($customerId);
     }
 
-    private static function isOutOfSync(SystemWithCheckResults $systemWithCheckResults): bool
+    private static function isOutOfSync(SystemWithCheckResults $systemWithCheckResults, DateTime $now): bool
     {
         if (($lastSync = $systemWithCheckResults->last_sync) === NULL)
             return true;
             
-        return $lastSync < (new DateTime())->modify('-48 hours');
+        return $lastSync < (new DateTime($now))->modify('-48 hours');
     }
 }
