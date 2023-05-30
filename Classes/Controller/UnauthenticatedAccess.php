@@ -74,7 +74,7 @@ class UnauthenticatedAccess extends ActionController
         return intval($customerId);
     }
 
-    private static function isOutOfSync(array $system): bool
+    private static function isOutOfSync(System $system): bool
     {
         if (($lastSync = $system->last_sync) === null)
             return true;
