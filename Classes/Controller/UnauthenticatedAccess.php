@@ -7,6 +7,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 
 use Homeinfo\hwdb\Domain\Model\Deployment;
+use Homeinfo\hwdb\Domain\Model\System;
 use Homeinfo\hwdb\Domain\Repository\DeploymentRepository;
 use Homeinfo\hwdb\Domain\Repository\SystemRepository;
 
