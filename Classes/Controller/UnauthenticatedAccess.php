@@ -82,6 +82,6 @@ class UnauthenticatedAccess extends ActionController
         if (($lastSync = $system->last_sync) === null)
             return true;
             
-        return $lastSync < (new DateTime())->modify('-2 hours');
+        return $lastSync < (new DateTime())->modify('-24 hours');
     }
 }
