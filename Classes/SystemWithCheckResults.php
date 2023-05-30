@@ -72,6 +72,11 @@ class SystemWithCheckResults {
         return true;
     }
 
+    public function isUploadOrDownloadAlwaysCritical(): bool
+    {
+        return $this->isUploadAlwaysCritical() || $this->isDownloadAlwaysCritical();
+    }
+
     public function isDeployedAndFitted(): bool
     {
         return $this->deployment !== NULL && $this->fitted;

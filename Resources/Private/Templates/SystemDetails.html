@@ -161,7 +161,7 @@
 										<td>{system.deployment.connection}</td>
 										<td>{system.model}</td>
 										<td>
-											<f:if condition="{system.downloadCritical} || {system.uploadCritical}">
+											<f:if condition="{uploadOrDownloadAlwaysCritical}">
 												<!--Here be red background-->
 												!!!
 											</f:if>
