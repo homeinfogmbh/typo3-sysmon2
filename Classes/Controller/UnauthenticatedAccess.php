@@ -63,7 +63,7 @@ class UnauthenticatedAccess extends ActionController
             )
         );
         $this->view->assign('date', strtotime("first day of previous month"));
-        $this->view->assign('outOfSync', array_filter($systems, Self::isOutOfSync));
+        $this->view->assign('outOfSync', array_filter($systems, fn($system) => Self::isOutOfSync($system)));
     }
 
     private static function getCustomerId(): ?int
