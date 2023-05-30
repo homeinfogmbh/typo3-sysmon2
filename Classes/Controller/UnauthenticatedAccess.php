@@ -90,6 +90,6 @@ class UnauthenticatedAccess extends ActionController
         if (($lastSync = $systemWithCheckResults->last_sync) === NULL)
             return true;
             
-        return $lastSync < $now - DateInterval::createFromDateString('48 hours');
+        return $lastSync < $now->add(DateInterval::createFromDateString('48 hours'));
     }
 }
