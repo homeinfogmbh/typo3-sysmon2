@@ -69,7 +69,7 @@ class UnauthenticatedAccess extends ActionController
             'outOfSync',
             array_filter(
                 $systemsWithCheckResults,
-                fn($systemWithCheckResults) => $systemWithCheckResults->isOutOfSync()
+                fn($systemWithCheckResults) => $systemWithCheckResults->isOutOfSync(new DateTime())
             )
         );
     }
