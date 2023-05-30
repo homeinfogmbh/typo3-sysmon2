@@ -16,6 +16,8 @@ use Homeinfo\hwdb\Domain\Repository\SystemRepository;
 use Homeinfo\SysMon2\Domain\Repository\CheckResultsRepository;
 use Homeinfo\SysMon2\SystemWithCheckResults;
 
+const OUT_OF_SYNC_THRESHOLD = 24 * 60 * 60;
+
 class UnauthenticatedAccess extends ActionController
 {
     function __construct()
@@ -88,6 +90,6 @@ class UnauthenticatedAccess extends ActionController
         if (($lastSync = $systemWithCheckResults->last_sync) === NULL)
             return true;
             
-        return $lastSync < (new DateTime($now))->modify('-48 hours');
+        return $lastSync < $now - OUT_OF_SYNC_THRESHOLD;
     }
 }
