@@ -60,7 +60,7 @@ class SystemWithCheckResults {
         if (($lastSync = $this->last_sync) === NULL)
             return true;
 
-        return $lastSync < $now->add(DateInterval::createFromDateString('48 hours'));
+        return $lastSync->add(DateInterval::createFromDateString('48 hours')) < $now;
     }
 
     public function isUploadAlwaysCritical(): bool
