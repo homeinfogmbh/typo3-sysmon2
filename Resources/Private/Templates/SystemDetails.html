@@ -97,16 +97,15 @@
 								</thead>
 								<tbody>
 									<f:for each="{outOfSync}" as="system">
-										<f:if condition="{system.uploadOrDownloadAlwaysCritical}">
-											<f:then>
-												<tr style="background-color:#ff0000">
-											</f:then>
-											<f:else>
-												<tr>
-											</f:else>
-										</f:if>
+										<tr>
 											<td>{system.id}</td>
-											<td>{system.deployment.address.street} {system.deployment.address.house_number}</td>
+											<td>
+												{system.deployment.address.street}
+												<f:if condition="{system.uploadOrDownloadAlwaysCritical}">
+													*
+												</f:if>
+												{system.deployment.address.house_number}
+											</td>
 											<td>{system.deployment.address.zip_code} {system.deployment.address.city}</td>
 											<td>{system.deployment.connection}</td>
 											<td>{system.model}</td>
