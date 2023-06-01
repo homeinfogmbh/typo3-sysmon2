@@ -136,52 +136,52 @@
 							<img src="/typo3conf/ext/sysmon2/Resources/Public/Icons/lightbulb.svg" alt="lightbulb"> Was können Sie tun?
 						</a>
 					</div>
-				</div>
-				<div class="list_box">
-					<h2>Systeme die mehr als 48 Stunden nicht mehr aktialisiert wurden.</h2>
-					<p>Diese Displays zeigen keine aktuellen Inhalte</p>
-					<div class="dash-table">
-						<table class="table">
-							<thead>
-								<tr>
-									<th scope="col">ID</th>
-									<th scope="col">Adresse</th>
-									<th scope="col">Ort</th>
-									<th scope="col">Anschluss</th>
-									<th scope="col">Modell</th>
-									<th scope="col">Letzte Datenübertragung</th>
-								</tr>
-							</thead>
-							<tbody>
-								<f:for each="{outOfSync}" as="system">
-									<f:if condition="{system.uploadOrDownloadAlwaysCritical}">
-										<f:then>
-											<tr style="background-color:#ff0000">
-										</f:then>
-										<f:else>
-											<tr>
-										</f:else>
-									</f:if>
-										<td>{system.id}</td>
-										<td>{system.deployment.address.street} {system.deployment.address.house_number}</td>
-										<td>{system.deployment.address.zip_code} {system.deployment.address.city}</td>
-										<td>{system.deployment.connection}</td>
-										<td>{system.model}</td>
-										<td>
-											<f:if condition="{system.last_sync} === NULL">
-												<f:then>
-													Never
-												</f:then>
-												<f:else>
-													<f:format.date format="d.m.Y">{system.last_sync}</f:format.date>
-												</f:else>
-											</f:if>
-										</td>
-
+					<div class="list_box">
+						<h2>Systeme die mehr als 48 Stunden nicht mehr aktialisiert wurden.</h2>
+						<p>Diese Displays zeigen keine aktuellen Inhalte</p>
+						<div class="dash-table">
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">ID</th>
+										<th scope="col">Adresse</th>
+										<th scope="col">Ort</th>
+										<th scope="col">Anschluss</th>
+										<th scope="col">Modell</th>
+										<th scope="col">Letzte Datenübertragung</th>
 									</tr>
-								</f:for>
-							</tbody>
-						</table>
+								</thead>
+								<tbody>
+									<f:for each="{outOfSync}" as="system">
+										<f:if condition="{system.uploadOrDownloadAlwaysCritical}">
+											<f:then>
+												<tr style="background-color:#ff0000">
+											</f:then>
+											<f:else>
+												<tr>
+											</f:else>
+										</f:if>
+											<td>{system.id}</td>
+											<td>{system.deployment.address.street} {system.deployment.address.house_number}</td>
+											<td>{system.deployment.address.zip_code} {system.deployment.address.city}</td>
+											<td>{system.deployment.connection}</td>
+											<td>{system.model}</td>
+											<td>
+												<f:if condition="{system.last_sync} === NULL">
+													<f:then>
+														Never
+													</f:then>
+													<f:else>
+														<f:format.date format="d.m.Y">{system.last_sync}</f:format.date>
+													</f:else>
+												</f:if>
+											</td>
+
+										</tr>
+									</f:for>
+								</tbody>
+							</table>
+						</div>
 					</div>
 					<a href="#" class="location_pin" data-bs-toggle="modal" data-bs-target="#tableModal1">
 						<img src="/typo3conf/ext/sysmon2/Resources/Public/Icons/lightbulb.svg" alt="lightbulb"> Was können Sie tun?
