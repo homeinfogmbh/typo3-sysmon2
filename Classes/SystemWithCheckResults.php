@@ -92,12 +92,13 @@ class SystemWithCheckResults {
     {
         $result = false;
 
-        foreach ($this->check_results as $checkResult)
+        foreach ($this->check_results as $checkResult) {
             if ($checkResult->sensors === 'success')
                 return false;
 
             if ($checkResult->sensors === 'failed')
                 $result = true;
+        }
         
         return $result;
     }
