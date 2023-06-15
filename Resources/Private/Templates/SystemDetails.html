@@ -88,11 +88,10 @@
 										<th scope="col">Ort</th>
 										<th scope="col">Anschluss</th>
 										<th scope="col">Modell</th>
-										<th scope="col">Letzte Datenübertragung</th>
 									</tr>
 								</thead>
 								<tbody>
-									<f:for each="{outOfSync}" as="system">
+									<f:for each="{outOfSyncButOnline}" as="system">
 										<tr>
 											<td>{system.id}</td>
 											<td>
@@ -105,17 +104,6 @@
 											<td>{system.deployment.address.zip_code} {system.deployment.address.city}</td>
 											<td>{system.deployment.connection}</td>
 											<td>{system.model}</td>
-											<td>
-												<f:if condition="{system.last_sync} === NULL">
-													<f:then>
-														Never
-													</f:then>
-													<f:else>
-														<f:format.date format="d.m.Y">{system.last_sync}</f:format.date>
-													</f:else>
-												</f:if>
-											</td>
-
 										</tr>
 									</f:for>
 								</tbody>

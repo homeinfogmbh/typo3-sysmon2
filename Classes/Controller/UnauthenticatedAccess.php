@@ -68,10 +68,10 @@ class UnauthenticatedAccess extends ActionController
         );
         $this->view->assign('date', strtotime("first day of previous month"));
         $this->view->assign(
-            'outOfSync',
+            'outOfSyncButOnline',
             array_filter(
                 $systemsWithCheckResults,
-                fn($systemWithCheckResults) => $systemWithCheckResults->isOutOfSync(new DateTime())
+                fn($systemWithCheckResults) => $systemWithCheckResults->isOutOfSync(new DateTime()) && !$systemWithCheckResults->isAlwaysOffline()
             )
         );
     }
