@@ -45,7 +45,6 @@
 										<th scope="col">Ort</th>
 										<th scope="col">Anschluss</th>
 										<th scope="col">Modell</th>
-										<th scope="col">Letzte Datenübertragung</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -56,16 +55,6 @@
 											<td>{checkedSystem.deployment.address.zip_code} {checkedSystem.deployment.address.city}</td>
 											<td>{checkedSystem.deployment.connection}</td>
 											<td>{checkedSystem.model}</td>
-											<td>
-												<f:if condition="!{checkedSystem.last_sync}">
-													<f:then>
-														Noch nie synchronisiert
-													</f:then>
-													<f:else>
-														<f:format.date format="d.m.Y">{checkedSystem.last_sync}</f:format.date>
-													</f:else>
-												</f:if>
-											</td>
 										</tr>
 									</f:for>
 								</tbody>
