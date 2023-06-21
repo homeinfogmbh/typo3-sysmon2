@@ -49,7 +49,7 @@ class UnauthenticatedAccess extends ActionController
             'downloadUploadCritical',
             array_filter(
                 $systemsWithCheckResults,
-                fn($systemWithCheckResults) => $systemWithCheckResults->isUploadOrDownloadAlwaysCritical()
+                fn($systemWithCheckResults) => $systemWithCheckResults->isUploadOrDownloadAlwaysCritical() && !$systemWithCheckResults->isAlwaysOffline()
             )
         );
         $this->view->assign(
