@@ -30,7 +30,7 @@
 				<div class="dashboard_main">
 					<h1 class="dash-title">System/Display Report für <f:format.date format="%B %Y">{date}</f:format.date></h1>
 					<div class="list_box">
-						<h2>Offline im <f:format.date format="%B">{date}</f:format.date></h2>
+						<h2>Offline im <f:format.date format="%B">{date}</f:format.date> (<f:count>{alwaysOffline}</f:count>)</h2>
 						<p>Übersicht Ihrer Digitalen Bretter die im <f:format.date format="%B">{date}</f:format.date> duchgehend Offline waren</p>
 						<div class="dash-table">
 							<table class="table">
@@ -61,7 +61,7 @@
 						</a>
 					</div>
 					<div class="list_box">
-						<h2>Digitale Bretter die mehr als 48 Stunden nicht mehr aktualisiert wurden</h2>
+						<h2>Digitale Bretter die mehr als 48 Stunden nicht mehr aktualisiert wurden (<f:count>{outOfSyncButOnline}</f:count>)</h2>
 						<p>Diese Digitalen Bretter zeigen keine aktuellen Inhalte</p>
 						<div class="dash-table">
 							<table class="table">
@@ -99,7 +99,7 @@
                         </a>
 					</div>
 					<div class="list_box">
-						<h2>Download/Upload kritisch im <f:format.date format="%B">{date}</f:format.date></h2>
+						<h2>Download/Upload kritisch im <f:format.date format="%B">{date}</f:format.date> (<f:count>{downloadUploadCritical}</f:count>)</h2>
 						<p>
 							Übersicht Ihrer Digitalen Bretter deren Übertragungsgeschwindigkeit unter der Mindestanforderung lag</br>
 							(min. Download = 1.9 Mbit/s, min. Upload  = 0.35 Mbits/s).
