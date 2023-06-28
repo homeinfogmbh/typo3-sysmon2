@@ -56,13 +56,13 @@
 								</tbody>
 							</table>
 						</div>
-						<a href="#" class="location_pin" data-bs-toggle="modal" data-bs-target="#tableModal1">
+						<!--<a href="#" class="location_pin" data-bs-toggle="modal" data-bs-target="#tableModal1">
 							<img src="/typo3conf/ext/sysmon2/Resources/Public/Icons/lightbulb.svg" alt="lightbulb"> Was können Sie tun?
-						</a>
+						</a>-->
 					</div>
 					<div class="list_box">
-						<h2>Digitale Bretter die mehr als 48 Stunden nicht mehr aktualisiert wurden (<f:count>{outOfSyncButOnline}</f:count>)</h2>
-						<p>Diese Digitalen Bretter zeigen keine aktuellen Inhalte</p>
+						<h2>Diese Digitalen Bretter zeigen keine aktuellen Inhalte (<f:count>{outOfSyncButOnline}</f:count>)</h2>
+						<p>Digitale Bretter die mehr als 48 Stunden nicht mehr aktualisiert wurden</p>
 						<div class="dash-table">
 							<table class="table">
 								<thead>
@@ -94,9 +94,9 @@
 							</table>
 						</div>
                         <p><i>Ihre Digitalen Bretter, die mit einem '*' gekennzeichnet sind, weisen konstant eine Bandbreite auf, die unterhalb der Mindestanforderung liegt.</i></p>
-                        <a href="#" class="location_pin" data-bs-toggle="modal" data-bs-target="#tableModal2">
+                        <!--<a href="#" class="location_pin" data-bs-toggle="modal" data-bs-target="#tableModal2">
                             <img src="/typo3conf/ext/sysmon2/Resources/Public/Icons/lightbulb.svg" alt="lightbulb"> Was können Sie tun?
-                        </a>
+                        </a>-->
 					</div>
 					<div class="list_box">
 						<h2>Download/Upload kritisch im <f:format.date format="%B">{date}</f:format.date> (<f:count>{downloadUploadCritical}</f:count>)</h2>
@@ -152,26 +152,27 @@
 								</tbody>
 							</table>
 						</div>
-						<a href="#" class="location_pin" data-bs-toggle="modal" data-bs-target="#tableModal2">
+						<p><i>"N/A" steht für "nicht verfügbar", was bedeutet, dass die Datenerfassung zu lange gedauert hat, sodass die Messung abgebrochen wurde.</i></p>
+						<!--<a href="#" class="location_pin" data-bs-toggle="modal" data-bs-target="#tableModal2">
 							<img src="/typo3conf/ext/sysmon2/Resources/Public/Icons/lightbulb.svg" alt="lightbulb"> Was können Sie tun?
-						</a>
+						</a>-->
 					</div>
 				</div>
 				<div class="dashboard_right">
 					<a href="https://www.homeinfo.de" class="dashdigital">
-						<img src="/typo3conf/ext/sysmon2/Resources/Public/Icons/Homeinfo-_ohne-Icon-_BW.png" alt="HONEINFO_Logo">
+						<img src="/typo3conf/ext/sysmon2/Resources/Public/Icons/DasDigitaleBrett_Logo.svg" alt="HONEINFO_Logo">
 					</a>
 					<div class="SupportanfrageBox">
 						<img src="/typo3conf/ext/sysmon2/Resources/Public/Icons/rocket.svg" class="rocket">
 						<h3>Supportanfrage</h3>
 						<p>Serviceanfrage zu dieser Seite an die Technik</p>
-						<a href="mailto:info@homeinfo.de" class="whiteBtn">SENDEN</a>
+						<a href="mailto:info@dasdigitalebrett.de" class="whiteBtn">SENDEN</a>
 					</div>
 					<div class="rightBottom">
 
 						<h4>HOMEINFO</h4>
 						<p>Digitale Informationssysteme GmbH</p>
-						<a href="mailto:info@homeinfo.de">info@homeinfo.de</a>
+						<a href="mailto:info@dasdigitalebrett.de">info@dasdigitalebrett.de</a>
 					</div>
 				</div>
 			</div>
