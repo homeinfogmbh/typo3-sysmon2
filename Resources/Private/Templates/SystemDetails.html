@@ -30,7 +30,7 @@
 				<div class="dashboard_main">
 					<h1 class="dash-title">System/Display Report für <f:format.date format="%B %Y">{date}</f:format.date></h1>
 					<div class="list_box">
-						<h2>Offline im <f:format.date format="%B">{date}</f:format.date></h2>
+						<h2>Offline im <f:format.date format="%B">{date}</f:format.date> (<f:count>{alwaysOffline}</f:count>)</h2>
 						<p>Übersicht Ihrer Digitalen Bretter die im <f:format.date format="%B">{date}</f:format.date> duchgehend Offline waren</p>
 						<div class="dash-table">
 							<table class="table">
@@ -61,7 +61,7 @@
 						</a>
 					</div>
 					<div class="list_box">
-						<h2>Digitale Bretter die mehr als 48 Stunden nicht mehr aktualisiert wurden</h2>
+						<h2>Digitale Bretter die mehr als 48 Stunden nicht mehr aktualisiert wurden (<f:count>{outOfSyncButOnline}</f:count>)</h2>
 						<p>Diese Digitalen Bretter zeigen keine aktuellen Inhalte</p>
 						<div class="dash-table">
 							<table class="table">
@@ -99,7 +99,7 @@
                         </a>
 					</div>
 					<div class="list_box">
-						<h2>Download/Upload kritisch im <f:format.date format="%B">{date}</f:format.date></h2>
+						<h2>Download/Upload kritisch im <f:format.date format="%B">{date}</f:format.date> (<f:count>{downloadUploadCritical}</f:count>)</h2>
 						<p>
 							Übersicht Ihrer Digitalen Bretter deren Übertragungsgeschwindigkeit unter der Mindestanforderung lag</br>
 							(min. Download = 1.9 Mbit/s, min. Upload  = 0.35 Mbits/s).
@@ -200,18 +200,13 @@
 							<p style="font-weight: bold; margin: 20px 0 5px 0;;">1. KEINE INTERNETVERBINDUNG</p>
 
 							<ol style="list-style-type: lower-alpha; padding-left: 30px;" >
-							<li>Starten Sie das Modem/Router neu</li>
-							<li>Starten Sie das Display neu</li>
-							<li>Prüfen Sie am Display (5 Sekunden lang auf Ihr Logo oben rechts touchen), ob die Internetverbindung hergestellt werden konnte</li>
-							<li>Sollte jetzt eine Onlineverbindung vorhanden sein;nutzen Sie den Update Service (US), damit wir das Display sofort online warten können</li>
-							<li>Sollte dennoch keine Verbindung hergestellt werden können</li>
-								<ul style="list-style-position: outside; list-style: square; padding-left: 15px;">
-									<li>Nehmen Sie das Display ab und kontrollieren, ob die Netzwerkleuchte hinten am Display blinkt. Sollte sie dauerhaft leuchten oder gar nicht an sein, liegt ein Defekt vor. Nutzen Sie den BringIn Service (BS)</li>
-									<li>Leuchten die Netzwerkanschlüsse korrekt haben aber trotzdem keine Internetverbindung, sprechen Sie mit Ihrem Provider und lassen die Datenrate und die Funktionsfähigkeit Ihres Modems/Router kontrollieren</li>
-									<li>Lassen Sie die Netzwerkleitung und Anschlüsse vom Modem/Router zum Display durch einen Elektriker oder vom Hausmeister überprüfen</li>
-									<li> Nehmen Sie das Display ab und schließen Sie es an einen anderen funktionierenden Netzwerkanschluss an und überprüfen die Onlineverbindung (5 Sekunden das Logo touchen).</li>
-									<li>Sollte alles kein Erfolg haben, Nutzen Sie den BringIn Service (BS)</li>
-									</ul></ol>
+								<li>Starten Sie das Modem/Router neu</li>
+								<li>Starten Sie das Display neu</li>
+								<li>Prüfen Sie am Display (5 Sekunden lang auf Ihr Logo oben rechts touchen), ob die Internetverbindung hergestellt werden konnte</li>
+								<li>Sollte jetzt eine Onlineverbindung vorhanden sein;nutzen Sie den Update Service (US), damit wir das Display sofort online warten können</li>
+								<li>Sollte eine negativ Meldung kommen (Verbindung nicht möglich) melden sie die fehlende Internetverbindung bitte ihrem Provider</li>
+								<li>Sollte alles kein Erfolg haben, Nutzen Sie den BringIn Service (BS)</li>
+							</ol>
 
 
 						<p style="font-weight: bold; margin: 20px 0 5px 0;;">2. DAS DISPLAY ZEIGT EINE FEHLERMELDUNG AN</p>
